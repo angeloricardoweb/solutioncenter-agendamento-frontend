@@ -1,12 +1,12 @@
 {
-  "theme_color": "#f69435",
-  "background_color": "#f69435",
+  "theme_color": "#010E2A",
+  "background_color": "#010E2A",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Meu App",
-  "description": "PWA App Template",
-  "short_name": "PWA app",
+  "name": "Solution Center Agendamento",
+  "description": "Faça seu agendamento",
+  "short_name": "SC Agendamento",
   "icons": [
     {
       "src": "/icon-192x192.png",

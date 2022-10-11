@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { Copyright } from "../components/Copyright";
 import { WelcomeDaisyUI } from '../components/WelcomeDaisyUI';
+import { Link } from 'next/link';
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
           Solution Center Agendamento
         </h1>
         <Copyright />
+        <Link href="/criar-conta">Criar conta</Link>
       </main>
     </div>
   );

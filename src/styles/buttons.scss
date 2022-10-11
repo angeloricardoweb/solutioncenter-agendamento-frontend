@@ -1,0 +1,19 @@
+.btn{
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.btn-primary{
+  @apply bg-brand-blue-600 border-brand-blue-200;
+  &:hover{
+    @apply bg-brand-blue-200 border-brand-blue-200
+  }
+  &:active{
+    @apply bg-zinc-600
+  }
+}
+
+.btn-outline{
+  border-color: #fff;
+  color: #fff;
+}

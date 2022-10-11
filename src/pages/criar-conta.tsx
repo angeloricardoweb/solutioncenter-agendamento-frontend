@@ -59,7 +59,7 @@ export default function CriarConta() {
               <button className='btn btn-primary w-full'>Criar minha conta</button>
             </div>
             <div className='mt-3'>
-              <Link href="/login">
+              <Link href="/">
                 <div className='flex items-center gap-2'>
                   <span className='font-bold text-xl'>
                     Já possuo uma conta

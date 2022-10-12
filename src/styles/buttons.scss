@@ -14,6 +14,5 @@
 }
 
 .btn-outline{
-  border-color: #fff;
-  color: #fff;
+  @apply border-brand-blue-600 text-brand-blue-600
 }

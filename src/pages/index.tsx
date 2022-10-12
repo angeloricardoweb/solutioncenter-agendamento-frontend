@@ -3,24 +3,52 @@ import Head from "next/head";
 import { Copyright } from "../components/Copyright";
 import { WelcomeDaisyUI } from '../components/WelcomeDaisyUI';
 import Link from 'next/link';
+import { ChevronRight } from "../components/Icons/ChevronRight";
 
 const Home: NextPage = () => {
   return (
-    <div >
-      <Head>
-        <title>Solution Center Agendamento</title>
-        <meta name="description" content="Aplicação em desenvolvimento" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="flex items-center justify-center flex-col gap-5 pt-4">
-        <h1 className="text-brand-blue-600">
-          Solution Center Agendamento
-        </h1>
-        <h2>Em desenvolvimento</h2>
-        <Copyright />
-        <Link href="/criar-conta">Criar conta</Link>
-      </main>
+    <section>
+    <div className="main_container">
+      <div>
+        <form className='max-w-[420px] mx-auto'>
+          <img src="/logo-solution-azul.svg" alt="solution center" />
+          <h2 className='mt-5'>login</h2>
+
+          <div className="label-float mt-3">
+            <input
+              type="email"
+              placeholder=" "
+            />
+            <label>E-mail</label>
+          </div>
+          <div className="label-float mt-3">
+            <input
+              type="password"
+              placeholder=" "
+            />
+            <label>Senha</label>
+          </div>
+
+          <div className="mt-5">
+            <button className='btn btn-primary w-full'>Login</button>
+          </div>
+          <Link href="/criar-conta">
+            <button className='btn btn-outline w-full mt-2' type="button">Criar minha conta</button>
+          </Link>
+          <div className='mt-3'>
+            <Link href="/recuperar-senha">
+              <div className='flex items-center gap-2 py-2'>
+                <span className='font-bold text-base'>
+                  Esqueci minha senha
+                </span>
+                <ChevronRight />
+              </div>
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
+  </section>
   );
 };
 

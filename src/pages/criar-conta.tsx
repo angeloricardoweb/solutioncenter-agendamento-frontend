@@ -59,14 +59,14 @@ export default function CriarConta() {
               <button className='btn btn-primary w-full'>Criar minha conta</button>
             </div>
             <div className='mt-3'>
-              <Link href="/">
-                <div className='flex items-center gap-2'>
-                  <span className='font-bold text-xl'>
-                    Já possuo uma conta
-                  </span>
-                  <ChevronRight />
-                </div>
-              </Link>
+            <Link href="/">
+              <div className='flex items-center gap-2 py-2'>
+                <span className='font-bold text-base'>
+                 Já possuo uma conta
+                </span>
+                <ChevronRight />
+              </div>
+            </Link>
             </div>
           </form>
         </div>

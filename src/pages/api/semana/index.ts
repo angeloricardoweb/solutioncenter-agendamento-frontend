@@ -1,10 +1,9 @@
 export default async function handler(req, res) {
-
-
   const data = {
     error: false,
     message: 'Sem erros',
     results: {
+      month: 'Outubro 2022',
       week:[
         {
           id: 1,
@@ -48,7 +47,7 @@ export default async function handler(req, res) {
           day_of_month: '07',
           enabled: false,
         },
-      ]
+      ],
     },
   }
 

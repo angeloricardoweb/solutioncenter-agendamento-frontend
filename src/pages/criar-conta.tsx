@@ -60,7 +60,7 @@ export default function CriarConta() {
             </div>
             <div className='mt-3'>
             <Link href="/">
-              <div className='flex items-center gap-2 py-2'>
+              <div className='flex items-center gap-2 py-2 cursor-pointer'>
                 <span className='font-bold text-base'>
                  Já possuo uma conta
                 </span>

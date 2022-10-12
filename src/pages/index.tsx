@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           </Link>
           <div className='mt-3'>
             <Link href="/recuperar-senha">
-              <div className='flex items-center gap-2 py-2'>
+              <div className='flex items-center gap-2 py-2 cursor-pointer'>
                 <span className='font-bold text-base'>
                   Esqueci minha senha
                 </span>

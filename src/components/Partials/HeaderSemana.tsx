@@ -19,9 +19,9 @@ export default function HeaderSemana() {
   const dayCurrent = new Date().getDate().toString()
   const [daySelected, setDaySelected] = useState(new Date().getDate().toString())
 
-  const btnEnabled = "flex flex-col items-center p-1 rounded-lg cursor-pointer bg-brand-blue-600";
+  const btnEnabled = "flex flex-col items-center p-1 rounded-lg cursor-pointer bg-brand-blue-400";
   const btnDisabled = "flex flex-col items-center p-1 rounded-lg cursor-pointer bg-zinc-300";
-  const btnActived = "ring-2 ring-green-600 ring-offset-2 rounded-lg";
+  const btnActived = "ring-4 ring-green-600 ring-offset-2 rounded-lg";
 
 
   async function getDatasDaSemana() {

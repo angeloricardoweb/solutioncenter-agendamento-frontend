@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       <div>
         <form className='max-w-[420px] mx-auto'>
           <img src="/logo-solution-azul.svg" alt="solution center" />
-          <h2 className='mt-5'>login</h2>
+          <h2 className='mt-5'>Login</h2>
 
           <div className="label-float mt-3">
             <input

@@ -18,9 +18,9 @@ export default function HeaderSemana() {
   const { setRoomData, roomData } = useGlobal()
   const [semana, setSemana] = useState<HeaderSemanaProps | undefined>()
   // get current day of month
-  const btnEnabled = "flex flex-col items-center p-1 rounded-lg cursor-pointer bg-brand-blue-400";
-  const btnDisabled = "flex flex-col items-center p-1 rounded-lg cursor-pointer bg-zinc-300";
-  const btnActived = "ring-4 ring-green-600 ring-offset-2 rounded-lg";
+  const btnEnabled = "shadow flex flex-col items-center p-1 rounded-lg cursor-pointer";
+  const btnDisabled = "shadow flex flex-col items-center p-1 rounded-lg cursor-pointer bg-zinc-300";
+  const btnActived = "shadow ring-2 ring-brand-blue-600 ring-offset-2 rounded-lg";
 
 
   async function getDatasDaSemana() {
@@ -50,10 +50,10 @@ export default function HeaderSemana() {
         {semana?.week.map(item => (
           <div key={item.id} className={`${item.day_of_month == roomData.day && btnActived}`} onClick={() => handleSelectDay(item.day_of_month, item.enabled)}>
             <div className={item.enabled ? btnEnabled : btnDisabled}>
-              <span className='text-sm text-white'>
+              <span className='text-sm text-brand-blue-600'>
                 {item.day_of_week}
               </span>
-              <span className='font-bold text-white'>
+              <span className='font-bold text-brand-blue-600'>
                 {item.day_of_month}
               </span>
             </div>

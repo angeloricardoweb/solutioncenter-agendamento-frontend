@@ -1,15 +1,9 @@
 export default async function handler(req, res) {
-  const day = req.query.day;
-  const salaId = req.query.salaId;
 
   const data = {
     error: false,
     message: 'Sem erros',
     results: {
-      metadata: {
-        day: day,
-        salaId: salaId,
-      },
       month: 'Outubro 2022',
       week:[
         {

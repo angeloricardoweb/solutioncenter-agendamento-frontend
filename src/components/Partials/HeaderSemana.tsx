@@ -20,7 +20,7 @@ export default function HeaderSemana() {
   // get current day of month
   const btnEnabled = "shadow flex flex-col items-center p-1 rounded-lg cursor-pointer";
   const btnDisabled = "shadow flex flex-col items-center p-1 rounded-lg cursor-pointer bg-zinc-300";
-  const btnActived = "shadow ring-2 ring-brand-blue-600 ring-offset-2 rounded-lg";
+  const btnActived = "shadow ring-2 ring-brand-brown-600 ring-offset-2 rounded-lg";
 
 
   async function getDatasDaSemana() {

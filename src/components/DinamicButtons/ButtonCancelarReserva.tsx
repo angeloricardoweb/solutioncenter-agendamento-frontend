@@ -20,7 +20,7 @@ const router = useRouter()
               <button className="btn btn-warning" onClick={handleCancelarReserva}>
                 Sim, cancelar
               </button>
-              <button className="btn btn-primary" onClick={() => setCheckCancelar(false)}>
+              <button className="btn btn-outline" onClick={() => setCheckCancelar(false)}>
                 Voltar
               </button>
             </div>

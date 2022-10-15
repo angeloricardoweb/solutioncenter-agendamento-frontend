@@ -13,8 +13,8 @@ module.exports = {
           gray: {
             50: "#949494",
           },
-          green: {
-            100: "#C5E884"
+          brown: {
+            600: "#B0733D"
           },
           blue: {
             50: '#F6F7FF',

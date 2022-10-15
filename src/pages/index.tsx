@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from 'next/link';
-import { ChevronRight } from "../components/Icons/ChevronRight";
 import { useRouter } from 'next/router'
+import { ChevronRight } from '../components/Icons/Chevron';
 
 const Home: NextPage = () => {
   const router = useRouter()

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { ChevronRight } from '../components/Icons/ChevronRight'
+import { ChevronRight } from '../components/Icons/Chevron'
 
 export default function CriarConta() {
   return (

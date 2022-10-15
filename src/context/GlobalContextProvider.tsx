@@ -1,17 +1,30 @@
 import React, { useState, createContext, useContext } from 'react';
 
 interface GlobalContextData {
-  contextWorking: string;
+  roomData: {
+    day: string;
+    sala_id: number;
+  };
+  setRoomData: (data: any) => void;
+}
+
+interface RoomDataProps {
+  day: string;
+  sala_id: number;
 }
 
 export const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData)
 
-export function GlobalContextProvider({children}: {children: React.ReactNode}) {
-  const [contextWorking] = useState('!!!!!!!!!!!!!!!!Context is Working!');
+export function GlobalContextProvider({ children }: { children: React.ReactNode }) {
+  const [roomData, setRoomData] = useState<RoomDataProps>({
+    day: new Date().getDate().toString(),
+    sala_id: 0
+  });
 
 
   const data = {
-    contextWorking
+    roomData,
+    setRoomData
   }
 
   return (

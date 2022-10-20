@@ -34,7 +34,7 @@ const Home: NextPage = () => {
             </div>
 
             <div className="mt-5">
-              <button className='btn btn-primary w-full' onClick={() => router.push('/agendamento')}>Login</button>
+              <button className='btn btn-primary w-full' onClick={() => router.push('/cliente/agendamento')}>Login</button>
             </div>
             <Link href="/criar-conta">
               <button className='btn btn-outline w-full mt-2' type="button">Criar minha conta</button>

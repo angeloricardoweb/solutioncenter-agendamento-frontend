@@ -36,7 +36,7 @@ export default function Reservas() {
               {
                 dataReservas && dataReservas.map(reserva => (
 
-                  <ReservaCard />
+                  <ReservaCard key={reserva.id} />
 
                 ))
               }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import HeaderSemana from '../components/Partials/HeaderSemana'
-import RoomCard from '../components/Partials/RoomCard'
-import { useGlobal } from '../context/GlobalContextProvider'
-import ClientBottomNavigation from './../components/Partials/BottomNavigation'
+
 import { useRouter } from 'next/router'
+import { useGlobal } from '../../context/GlobalContextProvider'
+import RoomCard from '../../components/Partials/RoomCard'
+import ClientBottomNavigation from '../../components/Partials/BottomNavigation'
+import HeaderSemana from '../../components/Partials/HeaderSemana'
 
 export default function Agendamento() {
   const { roomData } = useGlobal()
@@ -29,7 +30,7 @@ export default function Agendamento() {
   ]
 
   function handleShowTimeList(salaId) {
-    router.push(`/selecionar-horario?day=${roomData.day}&salaId=${salaId}`);
+    router.push(`/cliente/selecionar-horario?day=${roomData.day}&salaId=${salaId}`);
   }
 
   return (
@@ -48,7 +49,7 @@ export default function Agendamento() {
 
         </div>
       </section>
-      <ClientBottomNavigation />
+      <ClientBottomNavigation active='agenda'/>
     </>
   )
 }

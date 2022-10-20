@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
-import ClientBottomNavigation from '../components/Partials/BottomNavigation';
-import { useGlobal } from '../context/GlobalContextProvider';
-import { api } from '../services/axios';
+
 import { useRouter } from 'next/router';
-import ButtonCancelarReserva from '../components/DinamicButtons/ButtonCancelarReserva';
-import ButtonRealizarReserva from '../components/DinamicButtons/ButtonRealizarReserva';
-import { ChevronLeft } from '../components/Icons/Chevron';
+import { useGlobal } from '../../context/GlobalContextProvider';
+import { api } from '../../services/axios';
+import { ChevronLeft } from '../../components/Icons/Chevron';
+import ButtonRealizarReserva from '../../components/DinamicButtons/ButtonRealizarReserva';
+import ButtonCancelarReserva from '../../components/DinamicButtons/ButtonCancelarReserva';
+import ClientBottomNavigation from '../../components/Partials/BottomNavigation';
+
 
 
 export default function TimeList() {
@@ -14,19 +16,19 @@ export default function TimeList() {
   const router = useRouter()
   const { day, salaId } = router.query;
 
-
-
   const [roomContent, setRoomContent] = useState({
     name: '',
     date: new Date(),
     times: []
-
   })
 
   async function getSemana() {
     try {
-      const response = await api.get(`/room-time?day=${roomData.day}&salaId=${roomData.sala_id}`);
-      console.log(response.data.results);
+      const response = await api.get(`/room-time?day=${day}&salaId=${salaId}`, {
+        headers: {
+          Authorization: "token-teste"
+        }
+      });
       setRoomContent(response.data.results)
       return response;
     } catch (error) {
@@ -48,8 +50,8 @@ export default function TimeList() {
               <ChevronLeft />
             </span>
           </Link>
-        <h2 className='text-center'>{roomContent.name}</h2>
-        <h3 className='text-center text-brand-brown-600'>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "full" }).format(new Date(roomContent.date))}</h3>
+          <h2 className='text-center'>{roomContent.name}</h2>
+          <h3 className='text-center text-brand-brown-600'>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "full" }).format(new Date(roomContent.date))}</h3>
         </header>
         <div className='flex flex-col gap-2'>
           {
@@ -75,7 +77,7 @@ export default function TimeList() {
           }
         </div>
       </div>
-      <ClientBottomNavigation />
+      <ClientBottomNavigation active='agenda' />
     </>
   )
 }

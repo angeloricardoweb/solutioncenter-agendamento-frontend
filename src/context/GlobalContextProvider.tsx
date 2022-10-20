@@ -6,6 +6,8 @@ interface GlobalContextData {
     sala_id: number;
   };
   setRoomData: (data: any) => void;
+  refresh: boolean;
+  setRefresh: (data: boolean) => void;
 }
 
 interface RoomDataProps {
@@ -21,10 +23,13 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
     sala_id: 0
   });
 
+  const [refresh, setRefresh] = useState(false);
+
 
   const data = {
     roomData,
-    setRoomData
+    setRoomData,
+    refresh, setRefresh
   }
 
   return (

@@ -6,7 +6,7 @@ export default function ButtonRealizarReserva({id}) {
 const router = useRouter()
   async function handleRealizarReserva(){
     alert('Reserva realizada com sucesso! id: ' + id)
-    router.push('/agendamento')
+    router.push('/cliente/agendamento')
   }
 
   return (

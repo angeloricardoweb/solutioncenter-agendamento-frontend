@@ -6,7 +6,7 @@ export default function ButtonCancelarReserva({id}) {
 const router = useRouter()
   async function handleCancelarReserva(){
     alert('Reserva cancelada com sucesso! id: ' + id)
-    router.push('/agendamento')
+    router.push('/cliente/agendamento')
   }
 
   return (
@@ -29,7 +29,7 @@ const router = useRouter()
         ) : (
 
           <button className="btn btn-outline w-full" onClick={() => setCheckCancelar(true)}>
-            Cancelar reserva
+           Sua reserva
           </button>
         )
       }

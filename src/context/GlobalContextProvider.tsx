@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext } from 'react';
-
+import { useRouter } from 'next/router';
 interface GlobalContextData {
   roomData: {
     day: string;
@@ -8,6 +8,7 @@ interface GlobalContextData {
   setRoomData: (data: any) => void;
   refresh: boolean;
   setRefresh: (data: boolean) => void;
+  handleLogout: () => void;
 }
 
 interface RoomDataProps {
@@ -25,11 +26,19 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
 
   const [refresh, setRefresh] = useState(false);
 
+  const router = useRouter();
+
+
+
+  async function handleLogout(){
+    router.push('/');
+  }
 
   const data = {
     roomData,
     setRoomData,
-    refresh, setRefresh
+    refresh, setRefresh,
+    handleLogout
   }
 
   return (

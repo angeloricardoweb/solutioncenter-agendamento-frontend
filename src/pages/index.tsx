@@ -25,7 +25,6 @@ const Home: NextPage = () => {
     password: string;
   }
 
-  //cadastrar um usuario
   async function handleLogin(data: DataProps) {
 
     const loadingToast = toast.loading('Logando...')

@@ -55,7 +55,7 @@ export default function Agendamento() {
     {
       title: 'Carolina de Jesus',
       background: '/img/rooms/carolina-min.jpeg',
-      sala_id: 8
+      sala_id: 9
     },
 
   ]
@@ -71,17 +71,20 @@ export default function Agendamento() {
 
           <HeaderSemana />
           <h3 className='text-center mt-7'>Selecione uma sala</h3>
-          <div className='flex flex-col gap-3 mt-5'>
-            {rooms.map(room => (
-              <div key={room.sala_id} onClick={() => handleShowTimeList(room.sala_id)}>
-                <RoomCard background={room.background} title={room.title} />
-              </div>
-            ))}
+          <div className='overflow-scroll h-[calc(100vh-275px)]'>
+
+            <div className='flex flex-col gap-3 mt-5 pb-5'>
+              {rooms.map(room => (
+                <div key={room.sala_id} onClick={() => handleShowTimeList(room.sala_id)}>
+                  <RoomCard background={room.background} title={room.title} />
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
       </section>
-      <ClientBottomNavigation active='agenda'/>
+      <ClientBottomNavigation active='agenda' />
     </>
   )
 }

@@ -25,7 +25,7 @@ export default function HeaderSemana() {
 
   async function getDatasDaSemana() {
     try {
-      const response = await api_dev.get('/semana')
+      const response = await api.get('/agendamento')
       setSemana(response.data.results)
     } catch (error) {
       console.log(error);

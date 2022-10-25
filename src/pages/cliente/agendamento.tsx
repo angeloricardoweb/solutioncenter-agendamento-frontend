@@ -70,6 +70,7 @@ export default function Agendamento() {
         <div className="main_container">
 
           <HeaderSemana />
+          <h3 className='text-center mt-7'>Selecione uma sala</h3>
           <div className='flex flex-col gap-3 mt-5'>
             {rooms.map(room => (
               <div key={room.sala_id} onClick={() => handleShowTimeList(room.sala_id)}>

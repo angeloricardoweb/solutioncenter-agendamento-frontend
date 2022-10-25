@@ -5,5 +5,5 @@ export const api = axios.create({
 })
 
 export const api_dev = axios.create({
-    baseURL: 'https://agendasolutioncenterbelem.com/api/',
+    baseURL: 'https://www.agendasolutioncenterbelem.com/api/',
 })

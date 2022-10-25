@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { api } from '../../services/axios'
+import { api, api_dev } from '../../services/axios'
 import { useGlobal } from './../../context/GlobalContextProvider';
 
 interface HeaderSemanaProps {
@@ -25,7 +25,7 @@ export default function HeaderSemana() {
 
   async function getDatasDaSemana() {
     try {
-      const response = await api.get('/semana')
+      const response = await api_dev.get('/semana')
       setSemana(response.data.results)
     } catch (error) {
       console.log(error);

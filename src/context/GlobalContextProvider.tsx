@@ -9,11 +9,17 @@ interface GlobalContextData {
   refresh: boolean;
   setRefresh: (data: boolean) => void;
   handleLogout: () => void;
+  user: UserProps;
+  setUser: (data: UserProps) => void;
 }
 
 interface RoomDataProps {
   day: string;
   sala_id: number;
+}
+
+interface UserProps {
+  email: string;
 }
 
 export const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData)
@@ -24,13 +30,17 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
     sala_id: 0
   });
 
+  const [user, setUser] = useState<UserProps>({
+    email: ''
+  })
+
   const [refresh, setRefresh] = useState(false);
 
   const router = useRouter();
 
 
 
-  async function handleLogout(){
+  async function handleLogout() {
     router.push('/');
   }
 
@@ -38,7 +48,8 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
     roomData,
     setRoomData,
     refresh, setRefresh,
-    handleLogout
+    handleLogout,
+    user, setUser
   }
 
   return (

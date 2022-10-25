@@ -13,20 +13,51 @@ export default function Agendamento() {
 
   const rooms = [
     {
-      title: 'Sala 1',
-      background: '/img/rooms/room-1.png',
+      title: 'Clarice Lispector',
+      background: '/img/rooms/clarice-min.jpeg',
       sala_id: 1
     },
     {
-      title: 'Sala 2',
-      background: '/img/rooms/room-1.png',
+      title: 'Carlos Drummond de Andrade',
+      background: '/img/rooms/carlos-min.jpeg',
       sala_id: 2
     },
     {
-      title: 'Sala 3',
-      background: '/img/rooms/room-1.png',
+      title: 'Cecília Meireles',
+      background: '/img/rooms/cecilia-min.jpeg',
       sala_id: 3
     },
+    {
+      title: 'Rui Barbosa',
+      background: '/img/rooms/rui-min.jpeg',
+      sala_id: 4
+    },
+    {
+      title: 'Machado de Assis',
+      background: '/img/rooms/machado-min.jpeg',
+      sala_id: 5
+    },
+    {
+      title: 'Monteiro Lobato',
+      background: '/img/rooms/monteiro-min.jpeg',
+      sala_id: 6
+    },
+    {
+      title: 'Luis Fernando Verissimo',
+      background: '/img/rooms/luis-min.jpeg',
+      sala_id: 7
+    },
+    {
+      title: 'Cora Coralina',
+      background: '/img/rooms/cora-min.jpeg',
+      sala_id: 8
+    },
+    {
+      title: 'Carolina de Jesus',
+      background: '/img/rooms/carolina-min.jpeg',
+      sala_id: 8
+    },
+
   ]
 
   function handleShowTimeList(salaId) {

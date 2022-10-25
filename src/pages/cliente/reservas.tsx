@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import ClientBottomNavigation from '../../components/Partials/BottomNavigation'
 import ReservaCard from '../../components/Partials/ReservaCard'
-import { api } from '../../services/axios';
+import { api, api_dev } from '../../services/axios';
 
 export default function Reservas() {
   const [dataReservas, setDataReservas] = useState([])
 
   async function getReservas() {
     try {
-      const response = await api.get(`/reservas`, {
+      const response = await api_dev.get(`/reservas`, {
         headers: {
           Authorization: "token-teste"
         }

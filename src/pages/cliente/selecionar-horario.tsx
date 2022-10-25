@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router';
 import { useGlobal } from '../../context/GlobalContextProvider';
-import { api } from '../../services/axios';
+import { api, api_dev } from '../../services/axios';
 import { ChevronLeft } from '../../components/Icons/Chevron';
 import ButtonRealizarReserva from '../../components/DinamicButtons/ButtonRealizarReserva';
 import ButtonCancelarReserva from '../../components/DinamicButtons/ButtonCancelarReserva';
@@ -24,7 +24,7 @@ export default function TimeList() {
 
   async function getSemana() {
     try {
-      const response = await api.get(`/room-time?day=${day}&salaId=${salaId}`, {
+      const response = await api_dev.get(`/room-time?day=${day}&salaId=${salaId}`, {
         headers: {
           Authorization: "token-teste"
         }

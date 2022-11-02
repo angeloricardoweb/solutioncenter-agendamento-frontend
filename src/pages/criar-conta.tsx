@@ -138,6 +138,14 @@ export default function CriarConta() {
                 <span className="text-red-500 text-sm">Repita sua senha</span>
               )}
             </div>
+            {/* concordo com os termos de uso */}
+            <div className="flex items-center mt-3">
+              <input type="checkbox" {...register('termos', {required:true})} />
+              <label htmlFor="termos" className='ml-2 text-black'>Concordo com os <a href='/termos-de-uso.pdf' download className='text-blue-800' >termos de uso</a></label>
+              {errors.termos && (
+                <span className="text-red-500 text-sm">Você deve concordar com os termos para criar uma conta</span>
+              )}
+            </div>
             <div className="mt-5">
               <button className='btn btn-primary w-full' disabled={isSubmitting}>Criar minha conta</button>
             </div>

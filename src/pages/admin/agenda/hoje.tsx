@@ -46,13 +46,13 @@ export default function Hoje() {
                     {
                       reserva.clientes.map(cliente => (
                         <th key={cliente.id}>
-                          <div className={`flex flex-col items-center gap-2 border p-2 ${cliente.paid ? 'bg-green-300' : ''}`}>
-                            <span>{cliente.name}</span>
+                          <div className={`flex flex-col items-center gap-1 border p-1 ${cliente.paid ? 'bg-green-300' : ''}`}>
+                            <span className='text-[12px]'>{cliente.name}</span>
                             {
                               cliente.paid ? (
-                                <small>Pago</small>
+                                <small className='text-[12px]'>Pago</small>
                               ) : (
-                                <small>Aberto</small>
+                                <small className='text-[12px]'>Aberto</small>
                               )
                             }
                           </div>

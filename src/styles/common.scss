@@ -15,3 +15,11 @@
 .room_card {
   @apply rounded-xl shadow-md w-full h-32 p-4 flex flex-row items-end bg-cover;
 }
+
+thead{
+  tr{
+    th{
+      text-align: center;
+    }
+  }
+}

@@ -46,18 +46,22 @@ export default function Detail() {
           <h2 className='text-center'>Detalhes</h2>
         </div>
         <div className='mt-4 p-4 border rounded-md flex flex-col gap-3'>
-          <div>
-            <h3>Cliente</h3>
-            <p>{detail?.cliente}</p>
-            <h3>Sala</h3>
-            <p>{detail?.sala}</p>
-            <h3>Data</h3>
-            <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "full", timeStyle: "short" }).format(
-              new Date(detail?.data)
-            )}</p>
-            <h3>Status</h3>
-            <p>{detail?.status}</p>
-          </div>
+          {
+            detail && (
+              <div>
+                <h3>Cliente</h3>
+                <p>{detail?.cliente}</p>
+                <h3>Sala</h3>
+                <p>{detail?.sala}</p>
+                <h3>Data</h3>
+                <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "full", timeStyle: "short" }).format(
+                  new Date(detail?.data)
+                )}</p>
+                <h3>Status</h3>
+                <p>{detail?.status}</p>
+              </div>
+            )
+          }
           <div>
             <h3>Cancelar agendamento</h3>
             <div>

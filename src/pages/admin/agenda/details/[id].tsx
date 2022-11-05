@@ -3,6 +3,7 @@ import { ChevronLeft } from '../../../../components/Icons/Chevron'
 import { useRouter } from 'next/router'
 import { api_dev, api_local } from '../../../../services/axios'
 import Admin from '../../../../components/Layouts/Admin'
+import HeaderPage from '../../../../components/Partials/HeaderPage'
 
 interface DetailProps {
   id: string
@@ -41,12 +42,7 @@ export default function Detail() {
     <Admin title="agenda">
       <section>
         <div className='main_container'>
-          <div className='flex justify-between'>
-            <span onClick={() => router.back()} className="pr-5 py-3">
-              <ChevronLeft />
-            </span>
-            <h2 className='text-center'>Detalhes</h2>
-          </div>
+          <HeaderPage title="Detalhes"/>
           <div className='mt-4 p-4 border rounded-md flex flex-col gap-3'>
             {
               detail && (

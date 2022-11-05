@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { api, api_dev, api_local } from '../../../services/axios';
 import { useRouter } from 'next/router';
 import Admin from '../../../components/Layouts/Admin';
+import HeaderPage from '../../../components/Partials/HeaderPage';
 export default function Hoje() {
   const [reservas, setReservas] = useState([])
   const router = useRouter()
@@ -33,6 +34,9 @@ export default function Hoje() {
 
   return (
     <Admin title="agenda">
+      <div className="main_container">
+        <HeaderPage title="Agenda" />
+      </div>
       <section>
         <div>
           <div className="overflow-x-auto">

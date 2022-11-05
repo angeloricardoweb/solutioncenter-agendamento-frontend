@@ -16,13 +16,40 @@ export default async function handler(req, res) {
       clientes: [
         {
           id: 11235,
-          nome: 'Angelo Ricardo'
+          nome: 'Cliente A',
+          profissao: 'Psicólogo',
         },
         {
           id: 32423,
-          nome: 'Ilvine Pitter'
-        }
-      ]
+          nome: 'Cliente B',
+          profissao: 'Nutricionista',
+
+        },
+        {
+          id: 234231,
+          nome: 'Cliente C',
+          profissao: 'Psicólogo',
+
+        },
+        {
+          id: 234232,
+          nome: 'Cliente D',
+          profissao: 'Psicólogo',
+
+        },
+        {
+          id: 234233,
+          nome: 'Cliente E',
+          profissao: 'Médico',
+
+        },
+        {
+          id: 234234,
+          nome: 'Cliente F',
+          profissao: 'Psicólogo',
+
+        },
+      ],
     },
   };
 

@@ -17,6 +17,7 @@ export default async function handler(req, res) {
       nome: 'Angelo Ricardo',
       email: 'angelo@email.com',
       ultimo_agendamento: '2021-10-10T10:00:00.000Z',
+      profissao: 'Desenvolvedor',
       reservas_atuais: [
         {
           id: 11235,

@@ -1,10 +1,10 @@
 import React from 'react'
 import Admin from '../../../components/Layouts/Admin'
 
-export default function NovoAgendamento() {
+export default function Clientes() {
   return (
-    <Admin title="agenda">
-      <div>Novo</div>
+    <Admin title="clientes">
+      <div>Clientes</div>
     </Admin>
   )
 }

@@ -3,11 +3,19 @@ import { ChevronLeft } from '../../../../components/Icons/Chevron'
 import { useRouter } from 'next/router'
 import { api_dev, api_local } from '../../../../services/axios'
 
+interface DetailProps {
+  id: string
+  cliente: string
+  sala: string
+  data: string
+  status: string
+}
+
 export default function Detail() {
   const router = useRouter()
   const { id } = router.query
 
-  const [detail, setDetail] = useState({})
+  const [detail, setDetail] = useState<DetailProps>()
 
   async function getData() {
     try {

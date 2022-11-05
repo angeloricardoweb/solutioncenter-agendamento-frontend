@@ -15,10 +15,20 @@
 .room_card {
   @apply rounded-xl shadow-md w-full h-32 p-4 flex flex-row items-end bg-cover;
 }
+.table {
+  thead {
+    tr {
+      th {
+        text-align: center;
+      }
+    }
+  }
+}
 
-thead{
-  tr{
-    th{
+.table {
+  tbody {
+    th {
+      padding: 0px;
       text-align: center;
     }
   }

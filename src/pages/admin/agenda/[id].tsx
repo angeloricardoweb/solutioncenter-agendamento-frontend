@@ -5,9 +5,11 @@ export default function Hoje() {
   const [reservas, setReservas] = useState([])
   const router = useRouter()
 
+  const { id } = router.query;
+
   async function getDay() {
     try {
-      const response = await api_dev.get('/admin/agenda/102022')
+      const response = await api_dev.get(`/admin/agenda/${id}`)
       console.log(response.data.results);
       setReservas(response.data.results.reservas)
 
@@ -16,10 +18,10 @@ export default function Hoje() {
     }
   }
 
-  function handleAction(disponivel, clientId){
+  function handleAction(disponivel, clientId) {
     if (disponivel) {
       alert('add nova reserva')
-    }else{
+    } else {
       router.push(`/admin/agenda/details/${clientId}`)
     }
   }
@@ -54,7 +56,7 @@ export default function Hoje() {
                     <th className='min-w-[80px]'><span className='badge'>{reserva.time}h</span></th>
                     {
                       reserva.clientes.map(cliente => (
-                        <th key={cliente.id} className=" min-w-[80px] " onClick={()=>handleAction(cliente.disponivel, reserva.id)}>
+                        <th key={cliente.id} className=" min-w-[80px] " onClick={() => handleAction(cliente.disponivel, reserva.id)}>
                           <div className={`flex flex-col items-center gap-1 border p-1 ${cliente.paid ? 'bg-green-300' : ''}`}>
                             <span className='text-[12px] inline-block h-5'>{cliente.name}</span>
                             <small className='text-[12px] inline-block h-5'>{cliente.paid && "Pago"}</small>

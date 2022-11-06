@@ -13,9 +13,9 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -23,9 +23,9 @@ export default async function handler(req, res) {
             },
             {
               id: 2,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -33,9 +33,9 @@ export default async function handler(req, res) {
             },
             {
               id: 3,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -43,9 +43,9 @@ export default async function handler(req, res) {
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -53,9 +53,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -63,9 +63,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -73,9 +73,9 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -83,9 +83,9 @@ export default async function handler(req, res) {
             },
             {
               id: 8,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -93,9 +93,9 @@ export default async function handler(req, res) {
             },
             {
               id: 9,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -109,39 +109,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -149,9 +137,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -159,9 +147,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -169,33 +157,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -205,39 +181,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -245,9 +209,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -255,9 +219,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -265,33 +229,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -301,39 +253,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -341,9 +281,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -351,9 +291,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -361,33 +301,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -397,39 +325,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -437,9 +353,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -447,9 +363,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -457,33 +373,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -493,39 +397,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -533,9 +425,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -543,9 +435,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -553,33 +445,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -589,39 +469,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -629,9 +497,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -639,9 +507,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -649,33 +517,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -685,39 +541,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -725,9 +569,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -735,9 +579,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -745,33 +589,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -781,39 +613,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -821,9 +641,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -831,9 +651,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -841,33 +661,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -877,39 +685,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -917,9 +713,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -927,9 +723,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -937,33 +733,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -973,39 +757,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -1013,9 +785,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -1023,9 +795,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -1033,33 +805,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },
@@ -1069,39 +829,27 @@ export default async function handler(req, res) {
           rooms: [
             {
               id: 1,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 2,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 3,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 4,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -1109,9 +857,9 @@ export default async function handler(req, res) {
             },
             {
               id: 5,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -1119,9 +867,9 @@ export default async function handler(req, res) {
             },
             {
               id: 6,
-              disponivel: true,
+              disponivel: false,
               salaId: 1,
-              reserva:{
+              reserva: {
                 id: 123,
                 paid: true,
                 cliente: 'Angelo Ricardo',
@@ -1129,33 +877,21 @@ export default async function handler(req, res) {
             },
             {
               id: 7,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 8,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
             {
               id: 9,
-              disponivel: false,
+              disponivel: true,
               salaId: 1,
-              reserva:{
-                id: 123,
-                paid: true,
-                cliente: 'Angelo Ricardo',
-              },
+              reserva: null,
             },
           ],
         },

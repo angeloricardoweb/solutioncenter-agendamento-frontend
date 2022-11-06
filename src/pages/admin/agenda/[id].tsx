@@ -11,7 +11,7 @@ export default function Hoje() {
 
   async function getDay() {
     try {
-      const response = await api_dev.get(`/admin/agenda/${id}`)
+      const response = await api_local.get(`/admin/agenda/${id}`)
       console.log(response.data.results);
       setReservas(response.data.results.reservas)
 
@@ -20,17 +20,20 @@ export default function Hoje() {
     }
   }
 
-  function handleAction(disponivel, clientId) {
-    if (disponivel) {
-      router.push(`/admin/agenda/novo-agendamento?salaId=1&dataId=1231231333`)
+  function handleAction(reserva, room) {
+    if (room.disponivel) {
+      router.push(`/admin/agenda/novo-agendamento?salaId=${room.salaId}&dataId=${id}&hora=${reserva.time}`)
     } else {
-      // router.push(`/admin/agenda/details/${reservaId}`)
-      router.push(`/admin/agenda/details/${clientId}`)
+      router.push(`/admin/agenda/details/${room.reserva.id}`)
     }
   }
 
   useEffect(() => {
     getDay()
+
+    if(!id){
+      router.push('/admin/agenda//home')
+    }
   }, [])
 
   return (
@@ -57,23 +60,27 @@ export default function Hoje() {
                 </tr>
               </thead>
               <tbody>
-                {/* {
+                {
                   reservas && reservas.map(reserva => (
                     <tr key={reserva.id}>
                       <th className='min-w-[80px]'><span className='badge'>{reserva.time}h</span></th>
                       {
-                        reserva.clientes.map(cliente => (
-                          <th key={cliente.id} className=" min-w-[80px] " onClick={() => handleAction(cliente.disponivel, reserva.id)}>
-                            <div className={`flex flex-col items-center gap-1 border p-1 ${cliente.paid ? 'bg-green-300' : ''}`}>
-                              <span className='text-[12px] inline-block h-5'>{cliente.name}</span>
-                              <small className='text-[12px] inline-block h-5'>{cliente.paid && "Pago"}</small>
-                            </div>
+                        reserva.rooms.map(room => (
+                          <th key={room.id} className=" min-w-[80px] " onClick={() => handleAction(reserva, room)}>
+                            {room.disponivel === false &&
+                              <div className={`flex flex-col items-center gap-1 border p-1 ${room.reserva.paid ? 'bg-green-300' : ''}`}>
+                                <span className='text-[12px] inline-block h-5'>{room.reserva.cliente}</span>
+                                <small className='text-[12px] inline-block h-5'>{room.reserva.paid && "Pago"}</small>
+                              </div>}
+                              {
+                                room.disponivel && <span className='text-[12px] inline-block h-5'>Disponivel</span>
+                              }
                           </th>
                         ))
                       }
                     </tr>
                   ))
-                } */}
+                }
 
               </tbody>
             </table>

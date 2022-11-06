@@ -9,6 +9,13 @@ import { ICliente } from '../../../../types'
 export default function NovoAgendamento() {
   const [clientes, setClientes] = useState<ICliente[]>([]);
 
+  const router = useRouter()
+  const salaId = router.query.salaId
+  const dataId = router.query.dataId
+  const hora = router.query.hora
+  console.log(dataId, hora, salaId);
+
+
   async function getAllClientes() {
     try {
       const response = await api_dev.get('/clientes')

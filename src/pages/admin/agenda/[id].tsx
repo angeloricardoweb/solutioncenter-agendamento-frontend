@@ -11,7 +11,7 @@ export default function Hoje() {
 
   async function getDay() {
     try {
-      const response = await api_local.get(`/admin/agenda/${id}`)
+      const response = await api_dev.get(`/admin/agenda/${id}`)
       console.log(response.data.results);
       setReservas(response.data.results.reservas)
 

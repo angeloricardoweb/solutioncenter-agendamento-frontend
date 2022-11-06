@@ -2,14 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Admin from '../../../components/Layouts/Admin'
 import HeaderPage from '../../../components/Partials/HeaderPage'
 import { api_dev } from '../../../services/axios';
+import { ICliente } from '../../../types';
 
 
-interface ICliente {
-  id: number
-  nome: string
-  email: string
-  profissao: string
-}
+
 
 export default function Clientes() {
   const [clientes, setClientes] = useState<ICliente[]>([]);
@@ -17,11 +13,7 @@ export default function Clientes() {
 
   async function getAllClientes() {
     try {
-      const response = await api_dev.get('/clientes', {
-        headers: {
-          'Authorization': '123'
-        }
-      })
+      const response = await api_dev.get('/clientes')
       setClientes(response.data.results.clientes);
 
 

@@ -22,8 +22,9 @@ export default function Hoje() {
 
   function handleAction(disponivel, clientId) {
     if (disponivel) {
-      alert('add nova reserva')
+      router.push(`/admin/agenda/novo-agendamento?salaId=1&dataId=1231231333`)
     } else {
+      // router.push(`/admin/agenda/details/${reservaId}`)
       router.push(`/admin/agenda/details/${clientId}`)
     }
   }
@@ -56,7 +57,7 @@ export default function Hoje() {
                 </tr>
               </thead>
               <tbody>
-                {
+                {/* {
                   reservas && reservas.map(reserva => (
                     <tr key={reserva.id}>
                       <th className='min-w-[80px]'><span className='badge'>{reserva.time}h</span></th>
@@ -72,7 +73,7 @@ export default function Hoje() {
                       }
                     </tr>
                   ))
-                }
+                } */}
 
               </tbody>
             </table>

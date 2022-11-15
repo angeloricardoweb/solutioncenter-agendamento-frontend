@@ -18,6 +18,10 @@ export default async function handler(req, res) {
       email: 'angelo@email.com',
       ultimo_agendamento: '2021-10-10T10:00:00.000Z',
       profissao: 'Desenvolvedor',
+      cpf: '123.456.789-00',
+      admin: false,
+      ativo: true,
+      telefone: '11 99999-9999',
       reservas_atuais: [
         {
           id: 11235,
@@ -31,7 +35,7 @@ export default async function handler(req, res) {
           sala: 'Clarice Lispector',
           status: 'Aberto',
         },
-      ]
+      ],
     },
   };
 

@@ -22,6 +22,7 @@ export default function MinhaConta() {
 
               <ButtonLayout name="Editar conta" handler={() => router.push("/cliente/minha-conta/editar-conta")} />
               <ButtonLayout name="Histórico" handler={() => router.push("/cliente/minha-conta/historico")} />
+              <ButtonLayout name="Notificações" handler={() => router.push("/cliente/minha-conta/notificacoes")} />
               <ButtonLayout name="Sair" handler={handleLogout} />
 
             </div>

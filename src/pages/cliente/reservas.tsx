@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ClientBottomNavigation from '../../components/Partials/BottomNavigation'
+import HeaderPage from '../../components/Partials/HeaderPage';
 import ReservaCard from '../../components/Partials/ReservaCard'
-import { api, api_dev } from '../../services/axios';
+import { api, api_dev, api_local } from '../../services/axios';
 
 export default function Reservas() {
   const [dataReservas, setDataReservas] = useState([])
@@ -31,7 +32,7 @@ export default function Reservas() {
       <section>
         <div className="main_container">
           <div>
-            <h2 className='text-center'>Minhas reservas</h2>
+           <HeaderPage title='Minhas reservas' />
             <div className='mt-5 flex flex-col gap-5'>
               {
                 dataReservas && dataReservas.map(reserva => (

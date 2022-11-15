@@ -3,4 +3,5 @@ export interface ICliente {
   nome: string
   email: string
   profissao: string
+  ativo: boolean
 }

@@ -4,27 +4,25 @@ import HeaderPage from '../../../components/Partials/HeaderPage'
 import MessageCard from '../../../components/Partials/MessageCard'
 import { api_dev, api_local } from '../../../services/axios'
 
-export default function Historico() {
-  const [dataHistorico, setDataHistorico] = useState([])
+export default function Notificacoes() {
+  const [dataNotificacoes, setDataNotificacoes] = useState([])
 
-  async function getHistorico() {
+  async function getNotificacoes() {
     try {
-      const response = await api_dev.get(`/historico`, {
+      const response = await api_dev.get(`/notificacoes`, {
         headers: {
           Authorization: "token-teste"
         }
       });
-      setDataHistorico(response.data.results.historico)
-      console.log(dataHistorico);
+      setDataNotificacoes(response.data.results.notificacoes)
 
     } catch (error) {
       console.log(error);
     }
   }
 
-
   useEffect(() => {
-    getHistorico()
+    getNotificacoes()
   }, [])
 
   return (
@@ -32,10 +30,10 @@ export default function Historico() {
       <section>
         <div className="main_container">
           <div className='bg-white shadow rounded-md'>
-            <HeaderPage title='Histórico' />
+            <HeaderPage title='Notificações' />
             <div className='mt-5 flex flex-col gap-5 my-[90px]'>
               {
-                dataHistorico && dataHistorico.map(data => (
+                dataNotificacoes && dataNotificacoes.map(data => (
                   <MessageCard key={data.id} data={data} />
                 ))
               }

@@ -8,7 +8,7 @@ import { ICliente } from '../../../types';
 
 export default function Clientes() {
   const [clientes, setClientes] = useState<ICliente[]>([]);
-  const [filtro, setFiltro] = useState<number>(0);
+  const [filtro, setFiltro] = useState<any>(0);
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(false);
 

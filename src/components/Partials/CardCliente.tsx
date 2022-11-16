@@ -1,6 +1,7 @@
 import React from 'react'
 import { ICliente } from '../../types'
 import { useRouter } from 'next/router'
+import UserIcon from '../Icons/UserIcon';
 export default function CardCliente({ cliente }: { cliente: ICliente }) {
   const router = useRouter();
 
@@ -15,7 +16,7 @@ export default function CardCliente({ cliente }: { cliente: ICliente }) {
           <div className="avatar placeholder">
             <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
               <span className="text-xs text-white">
-                {cliente?.nome?.split(' ').map((item) => item[0]).join('') || "CL"}
+                <UserIcon />
               </span>
             </div>
           </div>

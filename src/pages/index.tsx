@@ -8,6 +8,7 @@ import { useGlobal } from '../context/GlobalContextProvider';
 import toast from 'react-hot-toast';
 import { api } from '../services/axios';
 import { useForm } from 'react-hook-form';
+import { setCookie } from 'nookies';
 
 const Home: NextPage = () => {
 
@@ -35,15 +36,23 @@ const Home: NextPage = () => {
         password: '',
       });
 
-      console.log(response.data);
+      console.log(response.data.results);
 
+      setCookie(undefined, 'token', response.data.results.token)
+      setCookie(undefined, 'role', response.data.results.role)
 
       toast.success(response.data.message, {
         duration: 5000,
         icon: '✅',
       })
 
-      router.push('/cliente/agendamento')
+      if (response?.data.results.role === "Cliente") {
+        router.push('/cliente/agendamento')
+      }
+
+      if (response?.data.results.role === "Administrador") {
+        router.push('/admin/agenda/home')
+      }
 
     } catch (error) {
       console.log(error.response.data);

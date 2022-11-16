@@ -14,7 +14,7 @@ export default function ClientDetails() {
 
   async function getCliente() {
     setLoading(true);
-    const response = await api_dev(`/clientes/${id}`, {
+    const response = await api_local(`/clientes/${id}`, {
       headers: {
         Authorization: "token-teste"
       }
@@ -45,9 +45,15 @@ export default function ClientDetails() {
           <div className='mt-10'>
             <h2 className='text-center'>Opções</h2>
             <div className='mt-3 flex gap-3 flex-wrap flex-col'>
-              <button className='btn bg-green-600'>Agendar sala</button>
-              <button className='btn bg-red-400'>Deletar cliente</button>
-              <button className='btn'>Tornar administrador</button>
+              <button className='btn bg-green-600' onClick={() => router.push(`/admin/clientes/agendar-sala/${id}`)}>Agendar sala</button>
+              <button className='btn bg-red-400' onClick={() => router.push(`/admin/clientes/deletar/${id}`)}>Deletar cliente</button>
+              {
+                data && data.admin ? (
+                  <button className='btn' onClick={() => router.push(`/admin/clientes/remover-admin/${id}`)}>Remover administrador</button>
+                ) : (
+                  <button className='btn' onClick={() => router.push(`/admin/clientes/tornar-admin/${id}`)}>Tornar administrador</button>
+                )
+              }
             </div>
           </div>
         </div>

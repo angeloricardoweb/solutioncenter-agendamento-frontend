@@ -1,9 +1,10 @@
+import { parseCookies } from 'nookies';
 import React, { useEffect, useState } from 'react'
 import Loading from '../../../components/Icons/Loading';
 import Admin from '../../../components/Layouts/Admin'
 import CardCliente from '../../../components/Partials/CardCliente';
 import HeaderPage from '../../../components/Partials/HeaderPage'
-import { api_dev, api_local } from '../../../services/axios';
+import { api, api_dev, api_local } from '../../../services/axios';
 import { ICliente } from '../../../types';
 
 export default function Clientes() {
@@ -13,9 +14,17 @@ export default function Clientes() {
   const [loading, setLoading] = useState(false);
 
   async function getClientes() {
+  const { token: token } = parseCookies()
+  console.log(token);
+
+
     setLoading(true);
     try {
-      const response = await api_dev.get(`/clientes?tipo=${filtro}&search=${search}`)
+      const response = await api.get(`/admin/clientes?tipo=${filtro}&search=${search}`,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       setClientes(response.data.results.clientes);
     } catch (error) {
       console.log(error);

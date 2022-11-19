@@ -1,12 +1,40 @@
 import React, { useState } from 'react'
-import {useRouter} from 'next/router'
-export default function ButtonRealizarReserva({id}) {
+import { useRouter } from 'next/router'
+import { api } from '../../services/axios'
+import { parseCookies } from 'nookies'
+import toast from 'react-hot-toast'
+export default function ButtonRealizarReserva({ timeId, salaId }) {
   const [check, setCheck] = useState(false)
+  const router = useRouter()
 
-const router = useRouter()
-  async function handleRealizarReserva(){
-    alert('Reserva realizada com sucesso! id: ' + id)
-    router.push('/cliente/agendamento')
+  const { "token": token } = parseCookies()
+
+  async function handleRealizarReserva() {
+    console.log(timeId, salaId);
+
+    const loadingToast = toast.loading('Registrando...')
+    try {
+      const response = await api.post(`agendamento/reservar`, {
+        timeId: timeId,
+        salaId: salaId
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      toast.success(response.data.message, {
+        duration: 5000,
+        icon: '✅',
+      })
+
+      router.push('/cliente/agendamento')
+    } catch (error) {
+      toast.error(error.response.data.message)
+
+    }
+    toast.dismiss(loadingToast)
+
   }
 
   return (
@@ -14,7 +42,7 @@ const router = useRouter()
       {
         check ? (
           <div>
-          <span>Reservar sala?</span>
+            <span>Reservar sala?</span>
 
             <div className='w-full flex justify-center gap-5'>
               <button className="btn btn-success" onClick={handleRealizarReserva}>

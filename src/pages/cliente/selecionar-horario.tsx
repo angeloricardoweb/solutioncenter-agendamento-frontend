@@ -8,13 +8,17 @@ import { ChevronLeft } from '../../components/Icons/Chevron';
 import ButtonRealizarReserva from '../../components/DinamicButtons/ButtonRealizarReserva';
 import ButtonCancelarReserva from '../../components/DinamicButtons/ButtonCancelarReserva';
 import ClientBottomNavigation from '../../components/Partials/BottomNavigation';
-
+import { parseCookies } from 'nookies';
+import Loading from '../../components/Icons/Loading';
 
 
 export default function TimeList() {
   const { roomData } = useGlobal()
   const router = useRouter()
   const { day, salaId } = router.query;
+  const { token: token } = parseCookies()
+  const [loading, setLoading] = useState(false)
+
 
   const [roomContent, setRoomContent] = useState({
     name: '',
@@ -23,21 +27,26 @@ export default function TimeList() {
   })
 
   async function getSemana() {
+    setLoading(true)
+
     try {
-      const response = await api_dev.get(`/room-time?day=${day}&salaId=${salaId}`, {
+      const response = await api.get(`/agendamento/horarios/2022-11-23/${salaId}`, {
         headers: {
-          Authorization: "token-teste"
+          Authorization: `Bearer ${token}`
         }
       });
       setRoomContent(response.data.results)
-      return response;
     } catch (error) {
       console.log(error);
     }
+    setLoading(false)
   }
 
 
   useEffect(() => {
+    if (!salaId) {
+      router.push('/cliente/agendamento')
+    }
     getSemana()
   }, [roomData])
 
@@ -54,14 +63,15 @@ export default function TimeList() {
           <h3 className='text-center text-brand-brown-600'>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "full" }).format(new Date(roomContent.date))}</h3>
         </header>
         <div className='flex flex-col gap-2'>
+          {loading && <Loading />}
           {
-            roomContent.times && roomContent.times.map(time => (
+            !loading && roomContent.times && roomContent.times.map(time => (
               <div className='grid grid-cols-4 items-center' key={time.id}>
                 <span className='col-span-1 font-bold text-xl text-center'>{time.time}Hrs</span>
-                <div className='col-span-3 h-16 flex items-center '                >
+                <div className='col-span-3 h-16 flex items-center' >
                   {
                     time.status === 'disponivel' &&
-                    <ButtonRealizarReserva id={time.id} />
+                    <ButtonRealizarReserva timeId={time.id} salaId={salaId} />
                   }
                   {
                     time.status === 'dono' &&

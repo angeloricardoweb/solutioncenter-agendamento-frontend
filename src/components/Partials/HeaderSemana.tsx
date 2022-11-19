@@ -36,9 +36,9 @@ export default function HeaderSemana() {
     getDatasDaSemana()
   }, [])
 
-  function handleSelectDay(day: string, enabled: boolean) {
+  function handleSelectDay(day_of_month: string, enabled: boolean) {
     if (enabled) {
-      setRoomData({ ...roomData, day: day })
+      setRoomData({ ...roomData, day: day_of_month })
     }
   }
 

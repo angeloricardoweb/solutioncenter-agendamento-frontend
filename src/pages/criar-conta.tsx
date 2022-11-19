@@ -64,7 +64,7 @@ export default function CriarConta() {
     <section>
       <div className="main_container">
         <div>
-          <form className='max-w-[420px] mx-auto' onSubmit={handleSubmit(handleRegister)}>
+          <form className='max-w-[420px] mx-auto  pb-[100px]' onSubmit={handleSubmit(handleRegister)}>
             <img src="/logo-solution-azul.svg" alt="solution center" />
             <p className='mt-2'>Faça agora seu pré registro para nosso novo App de Agendamento</p>
             <h2 className='mt-5'>Criar uma conta</h2>

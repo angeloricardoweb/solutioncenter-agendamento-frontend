@@ -7,8 +7,10 @@ export default function CalendarComponent() {
 
 
   function handleRoute(){
-    router.push(`/admin/agenda/${Date.parse(value)}`);
+    router.push(`/admin/agenda/${new Date(value).toISOString().split('T')[0]}`);
   }
+
+
 
   return (
     <div className='grid justify-center gap-5'>

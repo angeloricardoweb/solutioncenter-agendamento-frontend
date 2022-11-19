@@ -1,29 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { ChevronLeft } from '../../../../components/Icons/Chevron'
 import { useRouter } from 'next/router'
-import { api_dev, api_local } from '../../../../services/axios'
+import { api, api_dev, api_local } from '../../../../services/axios'
 import Admin from '../../../../components/Layouts/Admin'
 import HeaderPage from '../../../../components/Partials/HeaderPage'
+import { parseCookies } from 'nookies'
 
 interface DetailProps {
   id: string
   cliente: string
   sala: string
-  data: string
-  status: string
+  dia: string
+  pago: string
+  hora: string
 }
 
 export default function Detail() {
   const router = useRouter()
   const { id } = router.query
+  const {'token': token} = parseCookies()
 
   const [detail, setDetail] = useState<DetailProps>()
 
   async function getData() {
     try {
-      const response = await api_dev.get(`/admin/agenda/details/${id}`, {
+      const response = await api.get(`/admin/agendamento/${id}`, {
         headers: {
-          'Authorization': 'Bearer 123456'
+          'Authorization': `Bearer ${token}`
         }
       })
       setDetail(response.data.results);
@@ -51,12 +54,16 @@ export default function Detail() {
                   <p>{detail?.cliente}</p>
                   <h3>Sala</h3>
                   <p>{detail?.sala}</p>
-                  <h3>Data</h3>
-                  <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "full", timeStyle: "short" }).format(
-                    new Date(detail?.data)
+                  <h3>Dia</h3>
+                  <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(
+                    new Date(detail?.dia)
+                  )}</p>
+                  <h3>Hoda</h3>
+                  <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(
+                    new Date(detail?.hora)
                   )}</p>
                   <h3>Status</h3>
-                  <p>{detail?.status}</p>
+                  <p>{detail?.pago}</p>
                 </div>
               )
             }

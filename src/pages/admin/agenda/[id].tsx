@@ -3,15 +3,20 @@ import { api, api_dev, api_local } from '../../../services/axios';
 import { useRouter } from 'next/router';
 import Admin from '../../../components/Layouts/Admin';
 import HeaderPage from '../../../components/Partials/HeaderPage';
+import { parseCookies } from 'nookies';
 export default function Hoje() {
   const [reservas, setReservas] = useState([])
   const router = useRouter()
-
+  const {'token': token} = parseCookies()
   const { id } = router.query;
 
   async function getDay() {
     try {
-      const response = await api_dev.get(`/admin/agenda/${id}`)
+      const response = await api.get(`/admin/agenda/${id}`,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       console.log(response.data.results);
       setReservas(response.data.results.reservas)
 
@@ -68,9 +73,9 @@ export default function Hoje() {
                         reserva.rooms.map(room => (
                           <th key={room.id} className=" min-w-[80px] " onClick={() => handleAction(reserva, room)}>
                             {room.disponivel === false &&
-                              <div className={`flex flex-col items-center gap-1 border p-1 ${room.reserva.paid ? 'bg-green-300' : ''}`}>
-                                <span className='text-[12px] inline-block h-5'>{room.reserva.cliente}</span>
-                                <small className='text-[12px] inline-block h-5'>{room.reserva.paid && "Pago"}</small>
+                              <div className={`flex flex-col items-center gap-1 border p-1 ${room.reserva?.paid ? 'bg-green-300' : ''}`}>
+                                <span className='text-[12px] inline-block h-5'>{room.reserva?.cliente}</span>
+                                <small className='text-[12px] inline-block h-5'>{room.reserva?.paid && "Pago"}</small>
                               </div>}
                               {
                                 room.disponivel && <span className='text-[12px] inline-block h-5'>Disponivel</span>

@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import ReactInputMask from 'react-input-mask'
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/router';
+import SelectProfession from '../components/Forms/SelectProfession';
 
 export default function CriarConta() {
 
@@ -26,6 +27,7 @@ export default function CriarConta() {
     telefone: string;
     password: string;
     password_confirmation: string;
+    profissao_id: string;
   }
 
   //cadastrar um usuario
@@ -41,6 +43,7 @@ export default function CriarConta() {
         telefone: '',
         password: '',
         password_confirmation: '',
+        profissao_id: ''
       });
 
       toast.success(response.data.message, {
@@ -102,6 +105,9 @@ export default function CriarConta() {
                 <span className="text-red-500 text-sm">O telefone é obrigatório</span>
               )}
             </div>
+
+            <SelectProfession register={register} errors={errors} />
+
             <div className="divider">Dados de acesso</div>
             <div className="label-float mt-3">
               <input
@@ -140,7 +146,7 @@ export default function CriarConta() {
             </div>
             {/* concordo com os termos de uso */}
             <div className="flex items-center mt-3">
-              <input type="checkbox" {...register('termos', {required:true})} />
+              <input type="checkbox" {...register('termos', { required: true })} />
               <label htmlFor="termos" className='ml-2 text-black'>Concordo com os <a href='/termos-de-uso.pdf' download className='text-blue-800' >termos de uso</a></label>
               {errors.termos && (
                 <span className="text-red-500 text-sm">Você deve concordar com os termos para criar uma conta</span>

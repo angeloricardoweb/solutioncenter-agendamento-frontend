@@ -1,20 +1,22 @@
+import { parseCookies } from 'nookies'
 import React, { useEffect, useState } from 'react'
 import ClientBottomNavigation from '../../../components/Partials/BottomNavigation'
 import HeaderPage from '../../../components/Partials/HeaderPage'
 import MessageCard from '../../../components/Partials/MessageCard'
-import { api_dev, api_local } from '../../../services/axios'
+import { api, api_dev, api_local } from '../../../services/axios'
 
 export default function Notificacoes() {
   const [dataNotificacoes, setDataNotificacoes] = useState([])
+  const {'token': token} = parseCookies()
 
   async function getNotificacoes() {
     try {
-      const response = await api_dev.get(`/notificacoes`, {
+      const response = await api.get(`/notificacoes`, {
         headers: {
-          Authorization: "token-teste"
+          Authorization: `Bearer ${token}`
         }
       });
-      setDataNotificacoes(response.data.results.notificacoes)
+      setDataNotificacoes(response.data.results)
 
     } catch (error) {
       console.log(error);

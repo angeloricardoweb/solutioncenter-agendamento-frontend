@@ -52,7 +52,7 @@ export default function TimeList() {
 
   return (
     <>
-      <div className=' main_container mb-[120px]'>
+      <div className=' main_container'>
         <header className='border-brand-brown-600 border-b'>
           <Link href="agendamento">
             <span className='w-10 aspect-square  shadow flex items-center justify-center rounded-full border'>
@@ -62,7 +62,7 @@ export default function TimeList() {
           <h2 className='text-center'>{roomContent.name}</h2>
           <h3 className='text-center text-brand-brown-600'>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "full" }).format(new Date(roomContent.date))}</h3>
         </header>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 mb-[120px]'>
           {loading && <Loading />}
           {
             !loading && roomContent.times && roomContent.times.map(time => (

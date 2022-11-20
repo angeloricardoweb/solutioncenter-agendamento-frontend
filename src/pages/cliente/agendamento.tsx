@@ -57,7 +57,6 @@ export default function Agendamento() {
       background: '/img/rooms/carolina-min.jpeg',
       sala_id: 9
     },
-
   ]
 
   function handleShowTimeList(salaId) {

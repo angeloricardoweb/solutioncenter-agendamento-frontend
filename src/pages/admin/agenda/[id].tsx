@@ -4,15 +4,18 @@ import { useRouter } from 'next/router';
 import Admin from '../../../components/Layouts/Admin';
 import HeaderPage from '../../../components/Partials/HeaderPage';
 import { parseCookies } from 'nookies';
+import Loading from '../../../components/Icons/Loading';
 export default function Hoje() {
   const [reservas, setReservas] = useState([])
   const router = useRouter()
-  const {'token': token} = parseCookies()
+  const { 'token': token } = parseCookies()
   const { id } = router.query;
+  const [loading, setLoading] = useState(false)
 
   async function getDay() {
+    setLoading(true)
     try {
-      const response = await api.get(`/admin/agenda/${id}`,{
+      const response = await api.get(`/admin/agenda/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -23,9 +26,13 @@ export default function Hoje() {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false)
   }
 
   function handleAction(reserva, room) {
+    if (!room.disponivel && room.reserva === null) {
+      return
+    }
     if (room.disponivel) {
       router.push(`/admin/agenda/novo-agendamento?salaId=${room.salaId}&dataId=${id}&hora=${reserva.time}`)
     } else {
@@ -36,7 +43,7 @@ export default function Hoje() {
   useEffect(() => {
     getDay()
 
-    if(!id){
+    if (!id) {
       router.push('/admin/agenda//home')
     }
   }, [])
@@ -66,20 +73,36 @@ export default function Hoje() {
               </thead>
               <tbody>
                 {
+                  loading &&
+                  <tr>
+                    <th colSpan={5}>
+                      <Loading />
+                    </th>
+                  </tr>
+                }
+                {
+                  !loading &&
                   reservas && reservas.map(reserva => (
                     <tr key={reserva.id}>
                       <th className='min-w-[80px]'><span className='badge'>{reserva.time}h</span></th>
                       {
                         reserva.rooms.map(room => (
-                          <th key={room.id} className=" min-w-[80px] " onClick={() => handleAction(reserva, room)}>
-                            {room.disponivel === false &&
+                          <th key={room.id} className="min-w-[80px]" onClick={() => handleAction(reserva, room)}>
+                            {room.disponivel === false && room.reserva &&
                               <div className={`flex flex-col items-center gap-1 border p-1 ${room.reserva?.paid ? 'bg-green-300' : ''}`}>
                                 <span className='text-[12px] inline-block h-5'>{room.reserva?.cliente}</span>
                                 <small className='text-[12px] inline-block h-5'>{room.reserva?.paid && "Pago"}</small>
-                              </div>}
-                              {
-                                room.disponivel && <span className='text-[12px] inline-block h-5'>Disponivel</span>
-                              }
+                              </div>
+                            }
+                            {room.disponivel === false && room.reserva === null &&
+                              <div className={`flex flex-col items-center gap-1 border p-1 ${room.reserva?.paid ? 'bg-green-300' : ''}`}>
+                                <span className='text-[12px] inline-block h-10 text-zinc-400 font-normal'>Fechado</span>
+                              </div>
+                            }
+                            {
+                              room.disponivel && <span className='text-[12px] inline-block h-10 text-green-600 font-normal'>Disponivel</span>
+                            }
+
                           </th>
                         ))
                       }

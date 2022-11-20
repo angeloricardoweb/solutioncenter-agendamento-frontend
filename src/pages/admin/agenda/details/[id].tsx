@@ -5,6 +5,7 @@ import { api, api_dev, api_local } from '../../../../services/axios'
 import Admin from '../../../../components/Layouts/Admin'
 import HeaderPage from '../../../../components/Partials/HeaderPage'
 import { parseCookies } from 'nookies'
+import toast from 'react-hot-toast'
 
 interface DetailProps {
   id: string
@@ -31,7 +32,10 @@ export default function Detail() {
       })
       setDetail(response.data.results);
     } catch (error) {
-      console.log(error);
+      if(error.response.data.error){
+        toast.error(error.response.data.message)
+      }
+      router.back()
     }
   }
 
@@ -55,13 +59,11 @@ export default function Detail() {
                   <h3>Sala</h3>
                   <p>{detail?.sala}</p>
                   <h3>Dia</h3>
-                  <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(
+                  <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "long" }).format(
                     new Date(detail?.dia)
                   )}</p>
-                  <h3>Hoda</h3>
-                  <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(
-                    new Date(detail?.hora)
-                  )}</p>
+                  <h3>Hora</h3>
+                  <p>{detail?.hora}hrs</p>
                   <h3>Status</h3>
                   <p>{detail?.pago}</p>
                 </div>

@@ -77,7 +77,7 @@ export default function NovoAgendamento() {
             <h3>Dia!:</h3>
 
             <div>
-              <p>{(dataId).toString().split("-").reverse().join("/")}</p>
+              <p>{dataId && (dataId).toString().split("-").reverse().join("/")}</p>
             </div>
             <h3>Hora:</h3>
             <div>

@@ -17,11 +17,15 @@ interface DetailProps {
 }
 
 export default function Detail() {
-  const router = useRouter()
-  const { id } = router.query
-  const {'token': token} = parseCookies()
-
   const [detail, setDetail] = useState<DetailProps>()
+  const [showCancel, setShowCancel] = useState(false)
+
+  const router = useRouter()
+
+  const { id } = router.query
+
+  const { 'token': token } = parseCookies()
+
 
   async function getData() {
     try {
@@ -32,11 +36,27 @@ export default function Detail() {
       })
       setDetail(response.data.results);
     } catch (error) {
-      if(error.response.data.error){
+      if (error.response.data.error) {
         toast.error(error.response.data.message)
       }
       router.back()
     }
+  }
+
+  async function handleCancelAgendamento() {
+    const toasty = toast.loading('Cancelando...')
+    try {
+      const response = await api.delete(`/admin/agendamento/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      toast.success(response.data.message)
+      router.back()
+    } catch (error) {
+      toast.error(error.response.data.message)
+    }
+    toast.dismiss(toasty)
   }
 
   useEffect(() => {
@@ -49,7 +69,7 @@ export default function Detail() {
     <Admin title="agenda">
       <section>
         <div className='main_container'>
-          <HeaderPage title="Detalhes"/>
+          <HeaderPage title="Detalhes" />
           <div className='mt-4 p-4 border rounded-md flex flex-col gap-3'>
             {
               detail && (
@@ -69,18 +89,29 @@ export default function Detail() {
                 </div>
               )
             }
+            <hr />
             <div>
-              <h3>Cancelar agendamento</h3>
-              <div>
-                <button className='btn btn-outline'>Remover</button>
-              </div>
-            </div>
-            <div>
-              <h3>Marcar agendamento como pago</h3>
+              <h3>Marcar reserva como pago</h3>
               <div className='flex gap-2'>
                 <button className='btn btn-success'>Sim</button>
                 <button className='btn btn-outline'>Não</button>
               </div>
+            </div>
+            <hr />
+            <div>
+              {
+                showCancel ? (
+                  <div>
+                    <p>Tem certeza que deseja cancelar essa reserva?</p>
+                    <div className='flex gap-3 mt-3'>
+                      <button className='btn btn-warning' onClick={handleCancelAgendamento}>Sim, Cancelar</button>
+                      <button className='btn btn-outline' onClick={() => setShowCancel(false)}>Voltar</button>
+                    </div>
+                  </div>
+                ) : (
+                  <button className='btn btn-warning' onClick={() => setShowCancel(true)}>Cancelar reserva</button>
+                )
+              }
             </div>
           </div>
 

@@ -74,9 +74,10 @@ export default function NovoAgendamento() {
                 }
               })}
             </div>
-            <h3>Dia:</h3>
+            <h3>Dia!:</h3>
+
             <div>
-              <p>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(new Date((dataId || new Date()).toString()))}</p>
+              <p>{(dataId).toString().split("-").reverse().join("/")}</p>
             </div>
             <h3>Hora:</h3>
             <div>
@@ -96,7 +97,7 @@ export default function NovoAgendamento() {
             </select>
             <div className='flex gap-3 mt-5'>
               <button className='btn btn-success' disabled={!clientId} onClick={createAgendamento}>Agendar</button>
-              <button className='btn btn-outline'>Voltar</button>
+              <button className='btn btn-outline' onClick={()=>router.back()}>Voltar</button>
             </div>
 
           </div>

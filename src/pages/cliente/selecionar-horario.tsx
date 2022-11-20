@@ -30,7 +30,7 @@ export default function TimeList() {
     setLoading(true)
 
     try {
-      const response = await api.get(`/agendamento/horarios/2022-11-23/${salaId}`, {
+      const response = await api.get(`/agendamento/horarios/${day}/${salaId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

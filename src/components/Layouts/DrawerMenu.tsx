@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { Header } from '../Header/index'
 
@@ -21,7 +22,7 @@ export function DrawerMenu({ children }: DrawerMenuProps) {
             <a>Sidebar Item 1</a>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <Link href={"/"}>Sair</Link>
           </li>
         </ul>
       </div>

@@ -52,7 +52,7 @@ export default function TimeList() {
 
   return (
     <>
-      <div className=' main_container'>
+      <div className=' main_container mb-[120px]'>
         <header className='border-brand-brown-600 border-b'>
           <Link href="agendamento">
             <span className='w-10 aspect-square  shadow flex items-center justify-center rounded-full border'>

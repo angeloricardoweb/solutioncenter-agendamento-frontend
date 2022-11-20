@@ -4,19 +4,21 @@ import HeaderPage from '../../../components/Partials/HeaderPage'
 import { useRouter } from 'next/router'
 import Loading from '../../../components/Icons/Loading'
 import CardClienteDetails from '../../../components/Partials/CardClienteDetails'
-import { api_dev, api_local } from '../../../services/axios'
+import { api, api_dev, api_local } from '../../../services/axios'
+import { parseCookies } from 'nookies'
 export default function ClientDetails() {
   const [data, setData] = React.useState<any>(null)
   const [loading, setLoading] = React.useState<boolean>(false)
 
   const router = useRouter();
   const { id } = router.query;
+  const { 'token': token } = parseCookies()
 
   async function getCliente() {
     setLoading(true);
-    const response = await api_local(`/clientes/${id}`, {
+    const response = await api.get(`/admin/clientes/${id}`, {
       headers: {
-        Authorization: "token-teste"
+        Authorization: `Bearer ${token}`
       }
     })
     setData(response.data.results);
@@ -54,6 +56,32 @@ export default function ClientDetails() {
                   <button className='btn' onClick={() => router.push(`/admin/clientes/tornar-admin/${id}`)}>Tornar administrador</button>
                 )
               }
+            </div>
+          </div>
+          <div className="mb-[90px] mt-10">
+            <h2 className='text-center'>Reservas atuais</h2>
+            <div className='mt-3 flex gap-3 flex-wrap flex-col'>
+              {data?.reservas_atuais?.map((reserva: any) => (
+                <div key={reserva.id} className="mb-3 border-b pb-3">
+                  <div>
+                    <strong>Sala: </strong>
+                    <span>{reserva.sala}</span>
+                  </div>
+                  <div>
+                    <strong>Dia: </strong>
+                    <span>{new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(new Date(reserva.dia))}</span>
+                  </div>
+                  <div>
+                    <strong>Hora: </strong>
+                    <span>{reserva.hora}hrs</span>
+                  </div>
+                  <div>
+                    <strong>Status: </strong>
+                    <span>{reserva.pago}</span>
+                  </div>
+
+                </div>
+              ))}
             </div>
           </div>
         </div>

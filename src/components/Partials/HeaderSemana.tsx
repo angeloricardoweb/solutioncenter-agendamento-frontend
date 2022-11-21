@@ -54,7 +54,7 @@ export default function HeaderSemana() {
                 {item.day_of_week}
               </span>
               <span className='font-bold text-brand-blue-600'>
-                {item.day_of_month}
+                {item.day_of_month.split("-")[2]}
               </span>
             </div>
           </div>

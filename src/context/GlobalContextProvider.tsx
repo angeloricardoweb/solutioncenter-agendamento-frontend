@@ -1,5 +1,6 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { parseCookies } from 'nookies';
 interface GlobalContextData {
   roomData: {
     day: string;
@@ -43,6 +44,20 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
   async function handleLogout() {
     router.push('/');
   }
+
+  useEffect(() => {
+    const { 'token': token } = parseCookies();
+    const { 'role': role } = parseCookies();
+    if (token) {
+      if (role === 'Cliente') {
+        router.push('/cliente/agendamento')
+      }
+      if (role === 'Administrador') {
+        router.push('/admin/agenda/home')
+      }
+    }
+
+  }, [])
 
   const data = {
     roomData,

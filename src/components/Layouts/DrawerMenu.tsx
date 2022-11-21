@@ -1,12 +1,22 @@
 import Link from 'next/link'
 import React from 'react'
 import { Header } from '../Header/index'
-
+import nookies from 'nookies'
+import { useRouter } from 'next/router'
 interface DrawerMenuProps {
   children: React.ReactNode
 }
 
 export function DrawerMenu({ children }: DrawerMenuProps) {
+
+  const router = useRouter()
+
+  function handleLogout(){
+    nookies.destroy(undefined, 'token')
+    nookies.destroy(undefined, 'role')
+    router.push('/')
+  }
+
   return (
     <div className="drawer drawer-end">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -22,7 +32,7 @@ export function DrawerMenu({ children }: DrawerMenuProps) {
             <a>Sidebar Item 1</a>
           </li>
           <li>
-            <Link href={"/"}>Sair</Link>
+            <a onClick={handleLogout}>Sair</a>
           </li>
         </ul>
       </div>

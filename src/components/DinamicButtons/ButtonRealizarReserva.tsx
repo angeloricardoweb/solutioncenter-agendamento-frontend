@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { api } from '../../services/axios'
 import { parseCookies } from 'nookies'
 import toast from 'react-hot-toast'
-export default function ButtonRealizarReserva({ timeId, salaId }) {
+export default function ButtonRealizarReserva({ timeId, salaId, setRefresh }) {
   const [check, setCheck] = useState(false)
   const router = useRouter()
 
@@ -28,7 +28,8 @@ export default function ButtonRealizarReserva({ timeId, salaId }) {
         icon: '✅',
       })
 
-      router.push('/cliente/agendamento')
+      setRefresh(old => !old)
+
     } catch (error) {
       toast.error(error.response.data.message)
 

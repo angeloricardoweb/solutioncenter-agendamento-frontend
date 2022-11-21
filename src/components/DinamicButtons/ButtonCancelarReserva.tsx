@@ -5,7 +5,7 @@ import { parseCookies } from 'nookies'
 import { api } from '../../services/axios'
 
 
-export default function ButtonCancelarReserva({ id }) {
+export default function ButtonCancelarReserva({ id, setRefresh }) {
   const [checkCancelar, setCheckCancelar] = useState(false)
 
   const { 'token': token } = parseCookies()
@@ -20,7 +20,7 @@ export default function ButtonCancelarReserva({ id }) {
         }
       })
       toast.success(response.data.message)
-      router.push('/cliente/agendamento')
+      setRefresh(old => !old)
     } catch (error) {
       toast.error(error.response.data.message)
     }

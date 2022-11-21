@@ -13,6 +13,7 @@ import Loading from '../../components/Icons/Loading';
 
 
 export default function TimeList() {
+  const [refresh, setRefresh] = useState(false);
   const { roomData } = useGlobal()
   const router = useRouter()
   const { day, salaId } = router.query;
@@ -48,7 +49,7 @@ export default function TimeList() {
       router.push('/cliente/agendamento')
     }
     getSemana()
-  }, [roomData])
+  }, [roomData, refresh])
 
   return (
     <>
@@ -71,11 +72,11 @@ export default function TimeList() {
                 <div className='col-span-3 h-16 flex items-center' >
                   {
                     time.status === 'disponivel' &&
-                    <ButtonRealizarReserva timeId={time.id} salaId={salaId} />
+                    <ButtonRealizarReserva timeId={time.id} salaId={salaId}setRefresh={setRefresh}  />
                   }
                   {
                     time.status === 'dono' &&
-                    <ButtonCancelarReserva id={time.id} />
+                    <ButtonCancelarReserva id={time.reserva_id} setRefresh={setRefresh} />
                   }
                   {
                     time.status === 'indisponivel' &&

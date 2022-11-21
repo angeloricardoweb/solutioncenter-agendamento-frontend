@@ -53,7 +53,7 @@ export default function Hoje() {
       <div className="main_container">
         <HeaderPage title="Agenda" />
       </div>
-      <section>
+      <section className='mb-[120px]'>
         <div>
           <div className="overflow-x-auto">
             <table className="table w-full">

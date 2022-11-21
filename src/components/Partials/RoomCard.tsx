@@ -8,7 +8,7 @@ interface RoomCardProps {
 
 export default function RoomCard(props: RoomCardProps) {
   return (
-    <div className='room_card bg-center'
+    <div className='room_card bg- cursor-pointer'
       style={{
         backgroundImage: `url(${props.background})`
       }}>

@@ -72,7 +72,7 @@ export default function Agendamento() {
           <h3 className='text-center mt-7'>Selecione uma sala</h3>
           <div className='overflow-scroll h-[calc(100vh-275px)]'>
 
-            <div className='flex flex-col gap-3 mt-5 pb-5'>
+            <div className='flex flex-col gap-3 mt-5 pb-[120px]'>
               {rooms.map(room => (
                 <div key={room.sala_id} onClick={() => handleShowTimeList(room.sala_id)}>
                   <RoomCard background={room.background} title={room.title} />

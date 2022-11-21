@@ -32,7 +32,6 @@ export default function EditarConta() {
 
   async function handleUpdateUser(data: DataProps) {
     const loadingToast = toast.loading('Atualizando dados...')
-    console.log(data);
 
     try {
       const response = await api.put('/usuario/update', data, {
@@ -56,16 +55,14 @@ export default function EditarConta() {
 
 
   async function getUserData() {
-    const response = await api_dev.get('helper/me', {
+    const response = await api.get('/usuario/me', {
       headers: {
-        Authorization: `Bearer ${"token"}`
+        Authorization: `Bearer ${token}`
       }
     })
-    console.log(response);
 
     reset({
-      name: response.data.results.name,
-      cpf: response.data.results.cpf,
+      name: response.data.results.nome,
       email: response.data.results.email,
       telefone: response.data.results.telefone,
       profissao_id: response.data.results.profissao_id
@@ -95,16 +92,7 @@ export default function EditarConta() {
 
               </div>
 
-              <div className="label-float mt-3">
-                <ReactInputMask
-                  mask={'999.999.999-99'}
-                  type="text"
-                  placeholder=" "
-                  {...register('cpf')}
-                />
-                <label>CPF</label>
-
-              </div>
+              
               <div className="label-float mt-3">
                 <ReactInputMask
                   mask={'(99) 99999-9999'}

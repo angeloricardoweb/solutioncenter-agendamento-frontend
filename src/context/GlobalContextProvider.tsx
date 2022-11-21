@@ -48,6 +48,7 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
   useEffect(() => {
     const { 'token': token } = parseCookies();
     const { 'role': role } = parseCookies();
+    
     if (token) {
       if (role === 'Cliente') {
         router.push('/cliente/agendamento')

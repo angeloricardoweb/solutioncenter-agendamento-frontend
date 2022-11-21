@@ -14,13 +14,13 @@ export default function Clientes() {
   const [loading, setLoading] = useState(false);
 
   async function getClientes() {
-  const { token: token } = parseCookies()
-  console.log(token);
+    const { token: token } = parseCookies()
+    console.log(token);
 
 
     setLoading(true);
     try {
-      const response = await api.get(`/admin/clientes?tipo=${filtro}&search=${search}`,{
+      const response = await api.get(`/admin/clientes?tipo=${filtro}&search=${search}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -41,7 +41,7 @@ export default function Clientes() {
       <section>
         <div className="main_container">
           <HeaderPage title="Clientes" />
-          <div className="grid grid-cols-6 gap-3">
+          <div className="grid grid-cols-6 gap-3 sticky top-0 bg-white py-3 z-[999]">
             <input type="search" placeholder="Buscar" className="input input-bordered w-full max-w-xs col-span-4" style={{ borderRadius: "0.5rem" }}
               onChange={e => setSearch(e.target.value)}
             />
@@ -57,13 +57,13 @@ export default function Clientes() {
             loading &&
             <Loading />
           }
-
-          {
-            !loading &&
-            clientes.length > 0 && clientes.map(cliente => (
-              <CardCliente key={cliente.id} cliente={cliente} />
-            ))
-          }
+          <div className='mb-[120px] overflow-y-auto'>            {
+              !loading &&
+              clientes.length > 0 && clientes.map(cliente => (
+                <CardCliente key={cliente.id} cliente={cliente} />
+              ))
+            }
+          </div>
         </div>
       </section>
     </Admin>

@@ -83,13 +83,13 @@ export default function Hoje() {
                 {
                   !loading &&
                   reservas && reservas.map(reserva => (
-                    <tr key={reserva.id}>
+                    <tr key={reserva.id} className="cursor-pointer">
                       <th className='min-w-[80px]'><span className='badge'>{reserva.time}h</span></th>
                       {
                         reserva.rooms.map(room => (
-                          <th key={room.id} className="min-w-[80px]" onClick={() => handleAction(reserva, room)}>
+                          <th key={room.id} className="min-w-[80px] hover:bg-zinc-200" onClick={() => handleAction(reserva, room)}>
                             {room.disponivel === false && room.reserva &&
-                              <div className={`flex flex-col items-center gap-1 border p-1 ${room.reserva?.paid ? 'bg-green-300' : ''}`}>
+                              <div className={`flex flex-col items-center gap-1 border p-1  ${room.reserva?.paid ? 'bg-green-300 ' : ''}`}>
                                 <span className='text-[12px] inline-block h-5'>{room.reserva?.cliente}</span>
                                 <small className='text-[12px] inline-block h-5'>{room.reserva?.paid && "Pago"}</small>
                               </div>

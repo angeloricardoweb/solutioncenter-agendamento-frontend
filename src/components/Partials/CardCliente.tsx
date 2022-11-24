@@ -10,7 +10,7 @@ export default function CardCliente({ cliente }: { cliente: ICliente }) {
   }
 
   return (
-    <div key={cliente.id} className="p-2 border my-2 flex justify-between rounded-md" onClick={getCliente} >
+    <div key={cliente.id} className="p-2 border my-2 flex justify-between rounded-md cursor-pointer hover:bg-zinc-100" onClick={getCliente} >
       <div className="flex items-center space-x-3">
         <div className="avatar">
           <div className="avatar placeholder">

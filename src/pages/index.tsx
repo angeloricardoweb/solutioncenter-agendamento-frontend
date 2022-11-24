@@ -110,9 +110,7 @@ const Home: NextPage = () => {
               </Link>
             </div>
           </form>
-          <div className="flex justify-center mt-10">
-            <button onClick={() => router.push('/admin/agenda/home')} className='btn btn-outline'>Admin Teste</button>
-          </div>
+
         </div>
       </div>
     </section>

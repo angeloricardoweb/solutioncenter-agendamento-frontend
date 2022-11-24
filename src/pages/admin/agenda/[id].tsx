@@ -87,11 +87,11 @@ export default function Hoje() {
                       <th className='min-w-[80px]'><span className='badge'>{reserva.time}h</span></th>
                       {
                         reserva.rooms.map(room => (
-                          <th key={room.id} className="min-w-[80px] hover:bg-zinc-200" onClick={() => handleAction(reserva, room)}>
+                          <th key={room.id} className="min-w-[80px] hover:bg-zinc-200 border" onClick={() => handleAction(reserva, room)}>
                             {room.disponivel === false && room.reserva &&
-                              <div className={`flex flex-col items-center gap-1 border p-1  ${room.reserva?.paid ? 'bg-green-300 ' : ''}`}>
+                              <div className={`flex flex-col items-center gap-1 border p-1  ${room.reserva?.paid ? 'bg-green-300 ' : 'bg-orange-300'}`}>
                                 <span className='text-[12px] inline-block h-5'>{room.reserva?.cliente}</span>
-                                <small className='text-[12px] inline-block h-5'>{room.reserva?.paid && "Pago"}</small>
+                                <small className='text-[12px] inline-block h-5'>{room.reserva?.paid ? "Pago" : "Pendente"}</small>
                               </div>
                             }
                             {room.disponivel === false && room.reserva === null &&
@@ -100,7 +100,7 @@ export default function Hoje() {
                               </div>
                             }
                             {
-                              room.disponivel && <span className='text-[12px] inline-block h-10 text-green-600 font-normal'>Disponivel</span>
+                              room.disponivel && <span className='text-[12px] inline-block h-10 text-green-600 font-normal'></span>
                             }
 
                           </th>

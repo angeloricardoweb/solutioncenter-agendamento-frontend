@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Admin from '../../../components/Layouts/Admin'
 import HeaderPage from '../../../components/Partials/HeaderPage'
 import { useRouter } from 'next/router'
@@ -6,9 +6,12 @@ import Loading from '../../../components/Icons/Loading'
 import CardClienteDetails from '../../../components/Partials/CardClienteDetails'
 import { api, api_dev, api_local } from '../../../services/axios'
 import { parseCookies } from 'nookies'
+import AdminSwitchUserType from '../../../components/Partials/AdminSwitchUserType'
+import AdminSwitchUserActivity from '../../../components/Partials/AdminSwitchUserActivity'
 export default function ClientDetails() {
-  const [data, setData] = React.useState<any>(null)
-  const [loading, setLoading] = React.useState<boolean>(false)
+  const [data, setData] = useState<any>(null)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [refresh, setRefresh] = useState<boolean>(false)
 
   const router = useRouter();
   const { id } = router.query;
@@ -27,7 +30,7 @@ export default function ClientDetails() {
 
   useEffect(() => {
     getCliente()
-  }, [])
+  }, [refresh])
 
   return (
     <Admin title="clientes">
@@ -49,13 +52,9 @@ export default function ClientDetails() {
             <div className='mt-3 flex gap-3 flex-wrap flex-col'>
               <button className='btn bg-green-600' onClick={() => router.push(`/admin/clientes/agendar-sala/${id}`)}>Agendar sala</button>
               <button className='btn bg-red-400' onClick={() => router.push(`/admin/clientes/deletar/${id}`)}>Deletar cliente</button>
-              {
-                data && data.admin ? (
-                  <button className='btn' onClick={() => router.push(`/admin/clientes/remover-admin/${id}`)}>Remover administrador</button>
-                ) : (
-                  <button className='btn' onClick={() => router.push(`/admin/clientes/tornar-admin/${id}`)}>Tornar administrador</button>
-                )
-              }
+              <hr />
+              <AdminSwitchUserType userId={id} setRefresh={setRefresh} />
+              <AdminSwitchUserActivity userId={id} setRefresh={setRefresh} />
             </div>
           </div>
           <div className="mb-[90px] mt-10">
@@ -82,6 +81,9 @@ export default function ClientDetails() {
 
                 </div>
               ))}
+              {
+                data?.reservas_atuais?.length === 0 && <p className='text-center'>Este cliente não tem reservas em andamento</p>
+              }
             </div>
           </div>
         </div>

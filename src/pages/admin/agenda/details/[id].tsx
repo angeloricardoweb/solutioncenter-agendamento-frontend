@@ -6,6 +6,7 @@ import Admin from '../../../../components/Layouts/Admin'
 import HeaderPage from '../../../../components/Partials/HeaderPage'
 import { parseCookies } from 'nookies'
 import toast from 'react-hot-toast'
+import AdminMarkAsPaid from '../../../../components/Partials/AdminMarkAsPaid'
 
 interface DetailProps {
   id: string
@@ -19,6 +20,7 @@ interface DetailProps {
 export default function Detail() {
   const [detail, setDetail] = useState<DetailProps>()
   const [showCancel, setShowCancel] = useState(false)
+  const [refresh, setRefresh] = useState(false)
 
   const router = useRouter()
 
@@ -62,7 +64,7 @@ export default function Detail() {
   useEffect(() => {
     getData()
 
-  }, [id])
+  }, [id, refresh])
 
 
   return (
@@ -90,13 +92,7 @@ export default function Detail() {
               )
             }
             <hr />
-            <div>
-              <h3>Marcar reserva como pago</h3>
-              <div className='flex gap-2'>
-                <button className='btn btn-success'>Sim</button>
-                <button className='btn btn-outline'>Não</button>
-              </div>
-            </div>
+            <AdminMarkAsPaid reservaId={id} setRefresh={setRefresh}  />
             <hr />
             <div>
               {

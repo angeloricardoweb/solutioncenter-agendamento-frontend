@@ -87,12 +87,16 @@ export default function Detail() {
                   <h3>Hora</h3>
                   <p>{detail?.hora}hrs</p>
                   <h3>Status</h3>
-                  <p>{detail?.pago}</p>
+                  {detail?.pago === 'Pago' ? (
+                    <p className='badge bg-green-700'>Pago</p>
+                  ) : (
+                    <p className='badge bg-orange-400'>Pendente</p>
+                  )}
                 </div>
               )
             }
             <hr />
-            <AdminMarkAsPaid reservaId={id} setRefresh={setRefresh}  />
+            <AdminMarkAsPaid reservaId={id} setRefresh={setRefresh} />
             <hr />
             <div>
               {

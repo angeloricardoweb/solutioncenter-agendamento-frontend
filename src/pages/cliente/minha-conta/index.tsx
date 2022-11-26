@@ -60,7 +60,7 @@ export default function MinhaConta() {
               <DescriptionBlock title={'E-mail'} value={userData?.email} />
               <DescriptionBlock title={'Status'} value={userData?.ativo ? 'Ativo' : 'Inativo'} />
 
-              <ButtonLayout name="Editar conta" handler={() => router.push("/cliente/minha-conta/editar-conta")} />
+              <ButtonLayout name="Atualizar senha" handler={() => router.push("/cliente/minha-conta/editar-conta")} />
               <ButtonLayout name="Notificações" handler={() => router.push("/cliente/minha-conta/notificacoes")} />
               <ButtonLayout name="Sair" handler={handleLogout} />
 

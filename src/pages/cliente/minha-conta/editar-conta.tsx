@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import ReactInputMask from 'react-input-mask';
 import SelectProfession from '../../../components/Forms/SelectProfession';
 import ClientBottomNavigation from '../../../components/Partials/BottomNavigation'
+import HeaderPage from '../../../components/Partials/HeaderPage';
 import { api, api_dev, api_local } from '../../../services/axios';
 
 export default function EditarConta() {
@@ -78,37 +79,10 @@ export default function EditarConta() {
     <>
       <section>
         <div className="main_container">
-          <div className='bg-white shadow rounded-md'>
-            <h2 className='text-center'>Editar conta</h2>
+          <div>
+            <HeaderPage title={'Atualizar senha'} />
             <form className='max-w-[420px] mx-auto  pb-[100px]' onSubmit={handleSubmit(handleUpdateUser)}>
-
-              <div className="label-float mt-3">
-                <input
-                  type="text"
-                  placeholder=" "
-                  {...register('name')}
-                />
-                <label>Nome</label>
-
-              </div>
-
-              
-              <div className="label-float mt-3">
-                <ReactInputMask
-                  mask={'(99) 99999-9999'}
-                  type="text"
-                  placeholder=" "
-                  {...register('telefone')}
-
-                />
-                <label>Telefone/Whatsapp</label>
-
-              </div>
-
-              <SelectProfession register={register} errors={errors} />
-
-              <div className="divider">Dados de acesso</div>
-
+              <div className="divider">Atualizar senha de acesso</div>
               <div className="label-float mt-3">
                 <input
                   type="password"
@@ -116,28 +90,20 @@ export default function EditarConta() {
                   {...register('password')}
                 />
                 <label>Senha</label>
-
               </div>
               <div className="label-float mt-3">
                 <input
                   type="password"
                   placeholder=" "
                   {...register('password_confirmation')}
-
                 />
                 <label>Repetir Senha</label>
-
               </div>
-
               <div className="mt-5">
                 <button className='btn btn-primary w-full' disabled={isSubmitting}>Atualizar dados</button>
               </div>
-
             </form>
-
           </div>
-
-
         </div>
       </section>
       <ClientBottomNavigation active='minha-conta' />

@@ -4,7 +4,7 @@ import React from 'react'
 import toast from 'react-hot-toast'
 import { api } from '../../services/axios'
 
-export default function AdminSwitchUserActivity({ userId, setRefresh }: any) {
+export default function AdminSwitchUserActivity({ userId, setRefresh, user }: any) {
   const { 'token': token } = parseCookies()
 
   async function handleSwitchUserActivity(status: boolean) {
@@ -29,9 +29,14 @@ export default function AdminSwitchUserActivity({ userId, setRefresh }: any) {
   return (
     <div>
       <h3 className='text-center'>Status do cliente</h3>
-      <div className='grid grid-cols-2 gap-3'>
-        <button className='btn btn-success' onClick={() => handleSwitchUserActivity(true)}>Tornar Ativo</button>
-        <button className='btn btn-warning' onClick={() => handleSwitchUserActivity(false)}>Tornar Inativo</button>
+      <div className='grid'>
+        {
+          user?.ativo ? (
+            <button className='btn btn-warning' onClick={() => handleSwitchUserActivity(false)}>Tornar Inativo</button>
+          ) : (
+            <button className='btn btn-success' onClick={() => handleSwitchUserActivity(true)}>Tornar Ativo</button>
+          )
+        }
       </div>
     </div>
   )

@@ -4,7 +4,7 @@ import React from 'react'
 import toast from 'react-hot-toast'
 import { api } from '../../services/axios'
 
-export default function AdminMarkAsPaid({ reservaId, setRefresh }: any) {
+export default function AdminMarkAsPaid({ reservaId, setRefresh, detail }: any) {
   const { 'token': token } = parseCookies()
 
   async function handleMarkAsPaid(status: string) {
@@ -30,8 +30,13 @@ export default function AdminMarkAsPaid({ reservaId, setRefresh }: any) {
     <div>
       <h3>Alterar status do Pagamento</h3>
       <div className='flex gap-2'>
-        <button className='btn btn-success' onClick={()=>handleMarkAsPaid("Pago")}>Pago</button>
-        <button className='btn btn-outline' onClick={()=>handleMarkAsPaid("Pendente")}>Pendente</button>
+        {detail.pago === 'Pago' ? (
+          <button className='btn btn-outline' onClick={() => handleMarkAsPaid("Pendente")}>Pendente</button>
+
+        ) : (
+          <button className='btn btn-success' onClick={() => handleMarkAsPaid("Pago")}>Pago</button>
+
+        )}
       </div>
     </div>
   )

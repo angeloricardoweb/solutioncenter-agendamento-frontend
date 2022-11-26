@@ -96,7 +96,7 @@ export default function Detail() {
               )
             }
             <hr />
-            <AdminMarkAsPaid reservaId={id} setRefresh={setRefresh} />
+            <AdminMarkAsPaid reservaId={id} setRefresh={setRefresh} detail={detail} />
             <hr />
             <div>
               {

@@ -23,16 +23,15 @@ export function DrawerMenu({ children }: DrawerMenuProps) {
       <div className="drawer-content">
         <Header />
         {children}
-
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-          <li>
+          {/* <li>
             <a>Sidebar Item 1</a>
-          </li>
+          </li> */}
           <li>
-            <a onClick={handleLogout}>Sair</a>
+            <a onClick={handleLogout}>Deslogar</a>
           </li>
         </ul>
       </div>

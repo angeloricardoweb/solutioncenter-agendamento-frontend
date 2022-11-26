@@ -90,6 +90,8 @@ export default function AgendarSala() {
                 <option value="17">17:00</option>
                 <option value="18">18:00</option>
                 <option value="19">19:00</option>
+                <option value="20">20:00</option>
+                <option value="21">21:00</option>
               </select>
             </div>
             <div className='col-span-2'>

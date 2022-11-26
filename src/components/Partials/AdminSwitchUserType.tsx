@@ -4,7 +4,7 @@ import React from 'react'
 import toast from 'react-hot-toast'
 import { api } from '../../services/axios'
 
-export default function AdminSwitchUserType({ userId, setRefresh }: any) {
+export default function AdminSwitchUserType({ userId, setRefresh, user }: any) {
   const { 'token': token } = parseCookies()
 
   async function handleSwitchUserType(status: boolean) {
@@ -29,9 +29,14 @@ export default function AdminSwitchUserType({ userId, setRefresh }: any) {
   return (
     <div>
       <h3 className='text-center'>Permissão do usuário</h3>
-      <div className='grid grid-cols-2 gap-3'>
-        <button className='btn btn-outline' onClick={() => handleSwitchUserType(true)}>Tornar Admin</button>
-        <button className='btn btn-outline' onClick={() => handleSwitchUserType(false)}>Tornar Cliente</button>
+      <div className='grid'>
+        {
+          user?.admin ? (
+            <button className='btn btn-outline' onClick={() => handleSwitchUserType(false)}>Tornar Cliente</button>
+          ) : (
+            <button className='btn btn-outline' onClick={() => handleSwitchUserType(true)}>Tornar Admin</button>
+          )
+        }
       </div>
     </div>
   )

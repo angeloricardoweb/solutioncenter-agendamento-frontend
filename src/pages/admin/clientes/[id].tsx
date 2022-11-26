@@ -51,10 +51,12 @@ export default function ClientDetails() {
             <h2 className='text-center'>Opções</h2>
             <div className='mt-3 flex gap-3 flex-wrap flex-col'>
               <button className='btn bg-green-600' onClick={() => router.push(`/admin/clientes/agendar-sala/${id}`)}>Agendar sala</button>
-              <button className='btn bg-red-400' onClick={() => router.push(`/admin/clientes/deletar/${id}`)}>Deletar cliente</button>
+
               <hr />
-              <AdminSwitchUserType userId={id} setRefresh={setRefresh} />
-              <AdminSwitchUserActivity userId={id} setRefresh={setRefresh} />
+              <AdminSwitchUserType userId={id} setRefresh={setRefresh} user={data} />
+              <AdminSwitchUserActivity userId={id} setRefresh={setRefresh}  user={data}/>
+              <div className="divider">Zona de perigo</div>
+              <button className='btn bg-red-400' onClick={() => router.push(`/admin/clientes/deletar/${id}`)}>Deletar cliente</button>
             </div>
           </div>
           <div className="mb-[90px] mt-10">

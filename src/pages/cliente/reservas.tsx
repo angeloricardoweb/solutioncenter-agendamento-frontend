@@ -47,6 +47,9 @@ export default function Reservas() {
                   <ReservaCard key={reserva.id} setRefresh={setRefresh} reserva={reserva} />
                 ))
               }
+              {
+                !loading && dataReservas.length <= 0 && <p>Ops, você não tem reservas em andamento</p>
+              }
             </div>
           </div>
         </div>

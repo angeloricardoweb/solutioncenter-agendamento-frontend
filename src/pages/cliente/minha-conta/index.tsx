@@ -54,7 +54,7 @@ export default function MinhaConta() {
             <HeaderPage title='Minha conta' />
 
             <div className='flex flex-col gap-2 mt-5'>
-              <h2>Bem vindo, {userData?.nome}</h2>
+              <h2>Cliente: {userData?.nome}</h2>
               <DescriptionBlock title={'Telefone'} value={userData?.telefone} />
               <DescriptionBlock title={'Profissão'} value={userData?.profissao} />
               <DescriptionBlock title={'E-mail'} value={userData?.email} />

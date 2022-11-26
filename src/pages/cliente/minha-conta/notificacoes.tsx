@@ -7,7 +7,7 @@ import { api, api_dev, api_local } from '../../../services/axios'
 
 export default function Notificacoes() {
   const [dataNotificacoes, setDataNotificacoes] = useState([])
-  const {'token': token} = parseCookies()
+  const { 'token': token } = parseCookies()
 
   async function getNotificacoes() {
     try {
@@ -31,7 +31,7 @@ export default function Notificacoes() {
     <>
       <section>
         <div className="main_container">
-          <div className='bg-white shadow rounded-md'>
+          <div>
             <HeaderPage title='Notificações' />
             <div className='mt-5 flex flex-col gap-5 my-[90px]'>
               {

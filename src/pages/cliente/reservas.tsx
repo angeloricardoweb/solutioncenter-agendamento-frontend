@@ -10,11 +10,12 @@ export default function Reservas() {
   const [dataReservas, setDataReservas] = useState([])
   const { 'token': token } = parseCookies()
   const [loading, setLoading] = useState(false)
+  const [refresh, setRefresh] = useState(false)
 
   async function getReservas() {
     setLoading(true)
     try {
-      const response = await api.get(`usuario/reservas`, {
+      const response = await api.get(`usuario/reservas?type=todas`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -30,7 +31,7 @@ export default function Reservas() {
 
   useEffect(() => {
     getReservas()
-  }, [])
+  }, [refresh])
 
 
   return (
@@ -38,14 +39,12 @@ export default function Reservas() {
       <section>
         <div className="main_container">
           <div>
-            <HeaderPage title='Minhas reservas' />
+            <HeaderPage title='Reservas em andamento' />
             <div className='mt-5 flex flex-col gap-5 mb-[100px]'>
               {loading && <Loading />}
               {
                 !loading && dataReservas && dataReservas.map(reserva => (
-
-                  <ReservaCard key={reserva.id} reserva={reserva} />
-
+                  <ReservaCard key={reserva.id} setRefresh={setRefresh} reserva={reserva} />
                 ))
               }
             </div>

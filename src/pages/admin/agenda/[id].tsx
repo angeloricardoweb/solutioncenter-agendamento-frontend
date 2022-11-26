@@ -30,9 +30,9 @@ export default function Hoje() {
   }
 
   function handleAction(reserva, room) {
-    if (!room.disponivel && room.reserva === null) {
-      return
-    }
+    // if (!room.disponivel && room.reserva === null) {
+    //   return
+    // }
     if (room.disponivel) {
       router.push(`/admin/agenda/novo-agendamento?salaId=${room.salaId}&dataId=${id}&hora=${reserva.time}`)
     } else {
@@ -94,11 +94,11 @@ export default function Hoje() {
                                 <small className='text-[12px] inline-block h-5'>{room.reserva?.paid ? "Pago" : "Pendente"}</small>
                               </div>
                             }
-                            {room.disponivel === false && room.reserva === null &&
+                            {/* {room.disponivel === false && room.reserva === null &&
                               <div className={`flex flex-col items-center gap-1 border p-1 ${room.reserva?.paid ? 'bg-green-300' : ''}`}>
                                 <span className='text-[12px] inline-block h-10 text-zinc-400 font-normal'>Fechado</span>
                               </div>
-                            }
+                            } */}
                             {
                               room.disponivel && <span className='text-[12px] inline-block h-10 text-green-600 font-normal'></span>
                             }

@@ -5,7 +5,7 @@ import { parseCookies } from 'nookies'
 import { api } from '../../services/axios'
 
 
-export default function ButtonCancelarReserva({ id, setRefresh }) {
+export default function ButtonCancelarReservaLite({ id, setRefresh }) {
   const [checkCancelar, setCheckCancelar] = useState(false)
 
   const { 'token': token } = parseCookies()
@@ -28,11 +28,11 @@ export default function ButtonCancelarReserva({ id, setRefresh }) {
   }
 
   return (
-    <>
+    <div className='mb-3'>
       {
         checkCancelar ? (
           <div>
-            <span>Tem certeza que deseja cancelar?</span>
+            <h3 className='text-center'>Tem certeza que deseja cancelar?</h3>
 
             <div className='w-full flex justify-center gap-5'>
               <button className="btn btn-warning" onClick={handleCancelarReserva}>
@@ -45,11 +45,14 @@ export default function ButtonCancelarReserva({ id, setRefresh }) {
 
           </div>
         ) : (
-          <button className="btn btn-outline w-full" onClick={() => setCheckCancelar(true)}>
-            Sua reserva
+          <div className='flex justify-items-center'>
+
+          <button className="btn btn-warning w-md mx-auto" onClick={() => setCheckCancelar(true)}>
+            Cancelar reserva?
           </button>
+          </div>
         )
       }
-    </>
+    </div>
   )
 }

@@ -8,7 +8,7 @@ import { useGlobal } from '../context/GlobalContextProvider';
 import toast from 'react-hot-toast';
 import { api } from '../services/axios';
 import { useForm } from 'react-hook-form';
-import { setCookie } from 'nookies';
+import { setCookie, destroyCookie } from 'nookies';
 
 const Home: NextPage = () => {
 
@@ -27,6 +27,8 @@ const Home: NextPage = () => {
   }
 
   async function handleLogin(data: DataProps) {
+    destroyCookie(undefined, 'token');
+    destroyCookie(undefined, 'role');
 
     const loadingToast = toast.loading('Logando...')
     try {
@@ -37,6 +39,7 @@ const Home: NextPage = () => {
       });
 
       console.log(response.data.results);
+
 
       setCookie(undefined, 'token', response.data.results.token)
       setCookie(undefined, 'role', response.data.results.role)

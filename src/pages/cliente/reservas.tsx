@@ -15,7 +15,7 @@ export default function Reservas() {
   async function getReservas() {
     setLoading(true)
     try {
-      const response = await api.get(`usuario/reservas?type=todas`, {
+      const response = await api.get(`usuario/reservas?type=futuras`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

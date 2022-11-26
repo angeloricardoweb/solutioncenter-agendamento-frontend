@@ -5,6 +5,7 @@ import { useGlobal } from '../../context/GlobalContextProvider'
 import RoomCard from '../../components/Partials/RoomCard'
 import ClientBottomNavigation from '../../components/Partials/BottomNavigation'
 import HeaderSemana from '../../components/Partials/HeaderSemana'
+import toast from 'react-hot-toast'
 
 export default function Agendamento() {
   const { roomData } = useGlobal()
@@ -60,6 +61,10 @@ export default function Agendamento() {
   ]
 
   function handleShowTimeList(salaId) {
+    if (!roomData.day) {
+      toast.error('Selecione um dia para continuar')
+      return
+    }
     router.push(`/cliente/selecionar-horario?day=${roomData.day}&salaId=${salaId}`);
   }
 

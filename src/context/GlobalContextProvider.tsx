@@ -26,8 +26,9 @@ interface UserProps {
 export const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData)
 
 export function GlobalContextProvider({ children }: { children: React.ReactNode }) {
+  const currentDay = new Date()
   const [roomData, setRoomData] = useState<RoomDataProps>({
-    day: new Date().getDate().toString(),
+    day: `${currentDay.getFullYear()}-${currentDay.getMonth() + 1}-${currentDay.getDate()}`,
     sala_id: 0
   });
 
@@ -48,7 +49,7 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
   useEffect(() => {
     const { 'token': token } = parseCookies();
     const { 'role': role } = parseCookies();
-    
+
     if (token) {
       if (role === 'Cliente') {
         router.push('/cliente/agendamento')

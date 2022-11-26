@@ -30,7 +30,7 @@ export default function AdminMarkAsPaid({ reservaId, setRefresh, detail }: any) 
     <div>
       <h3>Alterar status do Pagamento</h3>
       <div className='flex gap-2'>
-        {detail.pago === 'Pago' ? (
+        {detail?.pago === 'Pago' ? (
           <button className='btn btn-outline' onClick={() => handleMarkAsPaid("Pendente")}>Pendente</button>
 
         ) : (

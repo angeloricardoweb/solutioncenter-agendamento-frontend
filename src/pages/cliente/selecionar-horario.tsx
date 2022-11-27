@@ -10,6 +10,7 @@ import ButtonCancelarReserva from '../../components/DinamicButtons/ButtonCancela
 import ClientBottomNavigation from '../../components/Partials/BottomNavigation';
 import { parseCookies } from 'nookies';
 import Loading from '../../components/Icons/Loading';
+import { toast } from 'react-hot-toast';
 
 
 export default function TimeList() {
@@ -38,7 +39,10 @@ export default function TimeList() {
       });
       setRoomContent(response.data.results)
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.message,{
+        duration: 5000
+      })
+      console.log(error.response.data.message);
     }
     setLoading(false)
   }

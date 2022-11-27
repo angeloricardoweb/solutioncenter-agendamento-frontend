@@ -1,6 +1,6 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { parseCookies } from 'nookies';
+import { destroyCookie, parseCookies } from 'nookies';
 interface GlobalContextData {
   roomData: {
     day: string;
@@ -43,6 +43,9 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
 
 
   async function handleLogout() {
+    destroyCookie(undefined, 'token')
+    destroyCookie(undefined, 'role')
+
     router.push('/');
   }
 

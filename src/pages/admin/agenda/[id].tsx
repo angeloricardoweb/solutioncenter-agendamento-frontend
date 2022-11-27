@@ -69,8 +69,8 @@ export default function Hoje() {
         <HeaderPage title="Agenda" />
         <div className='flex gap-5'>
           <DescriptionBlock title={'Salas reservadas'} value={reservas?.qtd_reservas?.toString() || ""}/>
-          <DescriptionBlock title={'Pagas'} value={reservas?.qtd_reservas?.toString() || ""}/>
-          <DescriptionBlock title={'Pendentes'} value={reservas?.qtd_reservas?.toString() || ""}/>
+          <DescriptionBlock title={'Pagas'} value={reservas?.qtd_reservas_pagas?.toString() || ""}/>
+          <DescriptionBlock title={'Pendentes'} value={reservas?.qtd_reservas_pendentes?.toString() || ""}/>
         </div>
       </div>
       <section className='mb-[120px]'>

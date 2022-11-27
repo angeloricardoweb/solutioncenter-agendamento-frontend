@@ -5,8 +5,23 @@ import Admin from '../../../components/Layouts/Admin';
 import HeaderPage from '../../../components/Partials/HeaderPage';
 import { parseCookies } from 'nookies';
 import Loading from '../../../components/Icons/Loading';
+import DescriptionBlock from '../../../components/Partials/DescriptionBlock';
+
+interface IReserva {
+  qtd_reservas: number;
+  qtd_reservas_pagas: number;
+  qtd_reservas_pendentes: number;
+  reservas: [
+    {
+      id: number;
+      rooms: any;
+      time: string;
+    }
+  ]
+}
+
 export default function Hoje() {
-  const [reservas, setReservas] = useState([])
+  const [reservas, setReservas] = useState<IReserva>()
   const router = useRouter()
   const { 'token': token } = parseCookies()
   const { id } = router.query;
@@ -21,7 +36,7 @@ export default function Hoje() {
         }
       })
       console.log(response.data.results);
-      setReservas(response.data.results.reservas)
+      setReservas(response.data.results)
 
     } catch (error) {
       console.log(error);
@@ -52,6 +67,11 @@ export default function Hoje() {
     <Admin title="agenda">
       <div className="main_container">
         <HeaderPage title="Agenda" />
+        <div className='flex gap-5'>
+          <DescriptionBlock title={'Salas reservadas'} value={reservas?.qtd_reservas?.toString() || ""}/>
+          <DescriptionBlock title={'Pagas'} value={reservas?.qtd_reservas?.toString() || ""}/>
+          <DescriptionBlock title={'Pendentes'} value={reservas?.qtd_reservas?.toString() || ""}/>
+        </div>
       </div>
       <section className='mb-[120px]'>
         <div>
@@ -82,7 +102,7 @@ export default function Hoje() {
                 }
                 {
                   !loading &&
-                  reservas && reservas.map(reserva => (
+                  reservas && reservas.reservas.map(reserva => (
                     <tr key={reserva.id} className="cursor-pointer">
                       <th className='min-w-[80px]'><span className='badge'>{reserva.time}h</span></th>
                       {

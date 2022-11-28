@@ -45,9 +45,9 @@ export default function Hoje() {
   }
 
   function handleAction(reserva, room) {
-    // if (!room.disponivel && room.reserva === null) {
-    //   return
-    // }
+    if (room.fechado) {
+      return
+    }
     if (room.disponivel) {
       router.push(`/admin/agenda/novo-agendamento?salaId=${room.salaId}&dataId=${id}&hora=${reserva.time}`)
     } else {
@@ -108,21 +108,20 @@ export default function Hoje() {
                       {
                         reserva.rooms.map(room => (
                           <th key={room.id} className="min-w-[80px] hover:bg-zinc-200 border" onClick={() => handleAction(reserva, room)}>
-                            {room.disponivel === false && room.reserva &&
+                            {!room.disponivel && room.reserva &&
                               <div className={`flex flex-col items-center gap-1 border p-1  ${room.reserva?.paid ? 'bg-green-300 ' : 'bg-orange-300'}`}>
                                 <span className='text-[12px] inline-block h-5'>{room.reserva?.cliente}</span>
                                 <small className='text-[12px] inline-block h-5'>{room.reserva?.paid ? "Pago" : "Pendente"}</small>
                               </div>
                             }
-                            {/* {room.disponivel === false && room.reserva === null &&
-                              <div className={`flex flex-col items-center gap-1 border p-1 ${room.reserva?.paid ? 'bg-green-300' : ''}`}>
+                            {room.fechado &&
+                              <div className={`flex flex-col items-center gap-1 border p-1`}>
                                 <span className='text-[12px] inline-block h-10 text-zinc-400 font-normal'>Fechado</span>
                               </div>
-                            } */}
-                            {
-                              room.disponivel && <span className='text-[12px] inline-block h-10 text-green-600 font-normal'></span>
                             }
-
+                            {
+                              !room.fechado && room.disponivel && <span className='text-[12px] inline-block h-10 text-green-600 font-normal'></span>
+                            }
                           </th>
                         ))
                       }

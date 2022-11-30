@@ -27,6 +27,8 @@ export default function Hoje() {
   const { id } = router.query;
   const [loading, setLoading] = useState(false)
 
+  const date = id.toString().split('-').reverse().join('/')
+
   async function getDay() {
     setLoading(true)
     try {
@@ -67,6 +69,7 @@ export default function Hoje() {
     <Admin title="agenda">
       <div className="main_container">
         <HeaderPage title="Agenda" />
+        <p className='text-center font-bold text-brand-brown-600'>{date}</p>
         <div className='flex gap-5'>
           <DescriptionBlock title={'Salas reservadas'} value={reservas?.qtd_reservas?.toString() || ""}/>
           <DescriptionBlock title={'Pagas'} value={reservas?.qtd_reservas_pagas?.toString() || ""}/>

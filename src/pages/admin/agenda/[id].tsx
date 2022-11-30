@@ -27,7 +27,7 @@ export default function Hoje() {
   const { id } = router.query;
   const [loading, setLoading] = useState(false)
 
-  const date = id.toString().split('-').reverse().join('/')
+  const date = id?.toString().split('-').reverse().join('/') || ""
 
   async function getDay() {
     setLoading(true)

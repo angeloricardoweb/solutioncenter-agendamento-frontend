@@ -6,10 +6,12 @@ import RoomCard from '../../components/Partials/RoomCard'
 import ClientBottomNavigation from '../../components/Partials/BottomNavigation'
 import HeaderSemana from '../../components/Partials/HeaderSemana'
 import toast from 'react-hot-toast'
+import NotifyBadge from '../../components/Partials/NotifyBadge'
 
 export default function Agendamento() {
   const { roomData } = useGlobal()
   const router = useRouter()
+
 
 
   const rooms = [
@@ -72,11 +74,10 @@ export default function Agendamento() {
     <>
       <section>
         <div className="main_container">
-
+          <NotifyBadge />
           <HeaderSemana />
           <h3 className='text-center mt-7'>Selecione uma sala</h3>
           <div className='overflow-scroll h-[calc(100vh-275px)]'>
-
             <div className='flex flex-col gap-3 mt-5 pb-[120px]'>
               {rooms.map(room => (
                 <div key={room.sala_id} onClick={() => handleShowTimeList(room.sala_id)}>

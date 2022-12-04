@@ -14,6 +14,7 @@ export default function Opcoes() {
         <div className='flex flex-col gap-2 mt-5'>
           <ButtonLayout name={'Fechar horarios'} handler={() => router.push('/admin/opcoes/fechar-horarios')} />
           <ButtonLayout name={'Abrir horarios'} handler={() => router.push('/admin/opcoes/abrir-horarios')} />
+          <ButtonLayout name={'Notificações'} handler={() => router.push('/admin/opcoes/notificacoes')} />
         </div>
       </div>
     </Admin>

@@ -2,6 +2,7 @@ import { parseCookies } from 'nookies'
 import React, { useEffect, useState } from 'react'
 import Admin from '../../../components/Layouts/Admin'
 import DescriptionBlock from '../../../components/Partials/DescriptionBlock'
+import GenerateRelatory from '../../../components/Partials/GenerateRelatory'
 import HeaderPage from '../../../components/Partials/HeaderPage'
 import { api } from '../../../services/axios'
 interface IRelatory {
@@ -59,6 +60,7 @@ export default function Relatorios() {
               </>
             )
           }
+          <GenerateRelatory/>
       </div>
     </Admin>
   )

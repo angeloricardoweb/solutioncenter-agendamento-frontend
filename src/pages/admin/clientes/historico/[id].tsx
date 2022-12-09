@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 
 export default function HistoricoCliente() {
   const [historicoList, setHistoricoList] = useState([])
+  const [semHistorico, setSemHistorico] = useState(false)
 
   const router = useRouter()
 
@@ -24,6 +25,9 @@ export default function HistoricoCliente() {
       }
     })
     setHistoricoList(response.data.results.historico);
+    if(historicoList.length == 0) {
+      setSemHistorico(true)
+    }
     setLoading(false);
   }
 
@@ -38,7 +42,7 @@ export default function HistoricoCliente() {
         <div className='mt-3'>
           {
             loading ? <Loading /> : (
-              <div className='overflow-y-scroll h-[600px]'>
+              <div>
                 {
                   historicoList?.map((item) => (
                     <div key={item.id} className="p-2 bg-zinc-200 rounded-md my-2">
@@ -48,6 +52,11 @@ export default function HistoricoCliente() {
                   ))
                 }
               </div>
+            )
+          }
+          {
+            semHistorico && (
+                <p className="text-2xl text-zinc-600">Nenhum histórico encontrado</p>
             )
           }
         </div>

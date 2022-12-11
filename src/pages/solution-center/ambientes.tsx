@@ -8,7 +8,7 @@ export default function Ambientes() {
       <div className="main_container">
         <HeaderPage title="Ambientes" />
         <div className="mt-5">
-          <p>Nossos ambientes foram elaborados para atender à sua necessidade. Todas as dalas possuem:</p>
+          <p>Nossos ambientes foram elaborados para atender à sua necessidade. Todas as salas possuem:</p>
           <div>
             <div className='flex items-center gap-3 mt-2'>
               <img src="/icons/wifi.png" alt="wifi" width={20} />

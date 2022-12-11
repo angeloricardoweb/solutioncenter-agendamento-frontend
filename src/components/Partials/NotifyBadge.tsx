@@ -27,7 +27,6 @@ export default function NotifyBadge() {
     getNotificacoes()
   },[])
 
-
   return (
     <div className='grid justify-center'>
       {!notificationVisibility && (

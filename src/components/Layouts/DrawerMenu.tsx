@@ -62,9 +62,9 @@ export function DrawerMenu({ children }: DrawerMenuProps) {
           <li>
             <a onClick={() => router.push('/solution-center/contato')}>Contato </a>
           </li>
-          <li>
+          {/* <li>
             <a onClick={() => router.push('/solution-center/sobre-o-app')}>Sobre o App </a>
-          </li>
+          </li> */}
           {
             !showLogin && (
               <li>

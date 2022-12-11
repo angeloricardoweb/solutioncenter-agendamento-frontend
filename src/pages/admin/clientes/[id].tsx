@@ -51,6 +51,7 @@ export default function ClientDetails() {
             <h2 className='text-center'>Opções</h2>
             <div className='mt-3 flex gap-3 flex-wrap flex-col'>
               <button className='btn bg-green-600' onClick={() => router.push(`/admin/clientes/agendar-sala/${id}`)}>Agendar sala</button>
+              <button className='btn bg-green-600' onClick={() => router.push(`/admin/clientes/historico/${id}`)}>Histórico</button>
 
               <hr />
               <AdminSwitchUserType userId={id} setRefresh={setRefresh} user={data} />

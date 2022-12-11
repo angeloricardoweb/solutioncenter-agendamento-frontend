@@ -6,8 +6,11 @@ import MessageCard from '../../../components/Partials/MessageCard'
 import { api, api_dev, api_local } from '../../../services/axios'
 
 export default function Notificacoes() {
-  const [dataNotificacoes, setDataNotificacoes] = useState([])
-  const { 'token': token } = parseCookies()
+  const [dataNotificacoes, setDataNotificacoes] = useState({
+    visualizada: false,
+    notificacoes: []
+  })
+  const { token: token } = parseCookies()
 
   async function getNotificacoes() {
     try {
@@ -23,8 +26,23 @@ export default function Notificacoes() {
     }
   }
 
+  async function setVisualizada() {
+    try {
+      await api.patch(`/notificacoes`,{}, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     getNotificacoes()
+    setTimeout(() => {
+      setVisualizada()
+    }, 2000)
   }, [])
 
   return (
@@ -35,9 +53,16 @@ export default function Notificacoes() {
             <HeaderPage title='Notificações' />
             <div className='mt-5 flex flex-col gap-5 my-[90px]'>
               {
-                dataNotificacoes && dataNotificacoes.map(data => (
+                dataNotificacoes.notificacoes.length > 0 && dataNotificacoes.notificacoes.map(data => (
                   <MessageCard key={data.id} data={data} />
                 ))
+              }
+              {
+                dataNotificacoes.notificacoes.length === 0 && (
+                  <div className='text-center'>
+                    <span className='text-brand-brown-600'>Nenhuma notificação</span>
+                  </div>
+                )
               }
             </div>
           </div>

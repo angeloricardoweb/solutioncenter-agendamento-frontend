@@ -45,22 +45,25 @@ export default function Relatorios() {
   return (
     <Admin title="relatorios">
       <div className="main_container">
+
         <HeaderPage title="Relatórios" />
-          {
-            data && (
-              <>
-                <h3>{data.name}</h3>
-                <DescriptionBlock title={'Mês atual'} value={data.mes_atual}/>
-                <DescriptionBlock title={'Salas reservadas'} value={data.qtd_salas_reservadas.toString()}/>
-                <DescriptionBlock title={'Salas pagas'} value={data.qtd_salas_pagas.toString()}/>
-                <DescriptionBlock title={'Salas pendentes'} value={data.qtd_salas_pendentes.toString()}/>
-                <DescriptionBlock title={'Clientes'} value={data.qtd_clientes.toString()}/>
-                <DescriptionBlock title={'Clientes Ativos'} value={data.qtd_clientes_ativo.toString()}/>
-                <DescriptionBlock title={'Clientes Inativos'} value={data.qtd_clientes_inativos.toString()}/>
-              </>
-            )
-          }
-          <GenerateRelatory/>
+        {
+          data && (
+            <>
+              <h3>{data.name}</h3>
+              <DescriptionBlock title={'Mês atual'} value={data.mes_atual} />
+              <DescriptionBlock title={'Salas reservadas'} value={data.qtd_salas_reservadas.toString()} />
+              <DescriptionBlock title={'Salas pagas'} value={data.qtd_salas_pagas.toString()} />
+              <DescriptionBlock title={'Salas pendentes'} value={data.qtd_salas_pendentes.toString()} />
+              <DescriptionBlock title={'Clientes'} value={data.qtd_clientes.toString()} />
+              <DescriptionBlock title={'Clientes Ativos'} value={data.qtd_clientes_ativo.toString()} />
+              <DescriptionBlock title={'Clientes Inativos'} value={data.qtd_clientes_inativos.toString()} />
+            </>
+          )
+        }
+        <div className='pb-20'>
+          <GenerateRelatory />
+        </div>
       </div>
     </Admin>
   )

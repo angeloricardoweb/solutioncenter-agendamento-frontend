@@ -1,5 +1,4 @@
 import React from 'react'
-import Admin from '../../components/Layouts/Admin'
 import HeaderPage from '../../components/Partials/HeaderPage'
 
 export default function Ambientes() {

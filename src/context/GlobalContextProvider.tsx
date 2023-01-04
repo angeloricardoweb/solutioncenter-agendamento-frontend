@@ -28,7 +28,7 @@ export const GlobalContext = createContext<GlobalContextData>({} as GlobalContex
 export function GlobalContextProvider({ children }: { children: React.ReactNode }) {
   const currentDay = new Date()
   const [roomData, setRoomData] = useState<RoomDataProps>({
-    day: `${currentDay.getFullYear()}-${currentDay.getMonth() + 1}-${currentDay.getDate()}`,
+    day: `${currentDay.getFullYear()}-${addZeroBefore(currentDay.getMonth() + 1)}-${addZeroBefore(currentDay.getDate())}`,
     sala_id: 0
   });
 
@@ -40,6 +40,10 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
 
   const router = useRouter();
 
+
+  function addZeroBefore(n: number) {
+    return (n < 10 ? '0' : '') + n;
+  }
 
 
   async function handleLogout() {
